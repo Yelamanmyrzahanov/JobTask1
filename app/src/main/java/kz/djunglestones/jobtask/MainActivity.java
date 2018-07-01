@@ -62,36 +62,40 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager = findViewById(R.id.viewPager);
 
-        pageAdapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount(),false);
+        pageAdapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(pageAdapter);
 
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         viewPager.setCurrentItem(1);
+        blankFragment = new BlankFragment();
 
         materialSearchView = findViewById(R.id.search_view);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                Toast.makeText(MainActivity.this, spinner.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
                 if (spinner.getSelectedItem().toString().equals("Меню 1")) {
-                    pageAdapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount(),true);
-                    viewPager.setCurrentItem(0);
-                    viewPager.setAdapter(pageAdapter);
+                    Toast.makeText(MainActivity.this, spinner.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+                    PageBlankAdapter pageAdapter1 = new PageBlankAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
+                    viewPager.setAdapter(pageAdapter1);
                     viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
                 } else if (spinner.getSelectedItem().toString().equals("Меню 2")) {
-                    pageAdapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount(),true);
+                    Toast.makeText(MainActivity.this, spinner.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+                    PageBlankAdapter pageAdapter1 = new PageBlankAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
                     viewPager.setCurrentItem(0);
-                    viewPager.setAdapter(pageAdapter);
+                    viewPager.setAdapter(pageAdapter1);
                     viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
                 } else if (spinner.getSelectedItem().toString().equals("Меню 3")) {
-                    pageAdapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount(),true);
+                    Toast.makeText(MainActivity.this, spinner.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+                    PageBlankAdapter pageAdapter1 = new PageBlankAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
+                    viewPager.setCurrentItem(0);
+                    viewPager.setAdapter(pageAdapter1);
+                    viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+                }else {
+                    pageAdapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
                     viewPager.setCurrentItem(0);
                     viewPager.setAdapter(pageAdapter);
                     viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-                }else {
-//                    replaceFragmentBlank(link1Fragment);
                 }
             }
 

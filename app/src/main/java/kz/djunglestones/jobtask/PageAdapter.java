@@ -9,18 +9,18 @@ public class PageAdapter extends FragmentPagerAdapter {
     private int numOfTabs;
     Fragment fragment;
     private boolean spinnerSelected;
-    public PageAdapter(FragmentManager fm,int numOfTabs,boolean spinnerSelected) {
+    public PageAdapter(FragmentManager fm,int numOfTabs) {
         super(fm);
         this.numOfTabs = numOfTabs;
-        this.spinnerSelected = spinnerSelected;
+//        this.spinnerSelected = spinnerSelected;
 //        this.fragment = fragment;
     }
 
     @Override
     public Fragment getItem(int position) {
 
-        if (!spinnerSelected) {
-            Log.i("Switch", "getItem: Switch Case");
+//        if (!spinnerSelected) {
+//            Log.i("Switch", "getItem: Switch Case");
             switch (position) {
                 case 0:
                     Log.i("First", "getItem: ");
@@ -34,10 +34,10 @@ public class PageAdapter extends FragmentPagerAdapter {
                 default:
                     return new BlankFragment();
             }
-        }else {
-            Log.i("Blank Fragment", "getItem: Blank Fragment");
-            return new BlankFragment();
-        }
+//        }else {
+//            Log.i("Blank Fragment", "getItem: Blank Fragment");
+//            return new BlankFragment();
+//        }
     }
 
     @Override
