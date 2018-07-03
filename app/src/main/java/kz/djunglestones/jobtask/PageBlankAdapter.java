@@ -7,7 +7,6 @@ import android.util.Log;
 
 public class PageBlankAdapter extends FragmentPagerAdapter {
     private int numOfTabs;
-    private boolean spinnerSelected;
     public PageBlankAdapter(FragmentManager fm,int numOfTabs) {
         super(fm);
         this.numOfTabs = numOfTabs;

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:background="#e3e4e6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="0dp"
+                android:layout_height="216dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/mount1" />
+
+            <Button
+                android:id="@+id/info_btn"
+                android:layout_width="64dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:background="#87FFFFFF"
+                android:text="инфо"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="#87000000"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+            <TextView
+                android:id="@+id/info2_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Инфо 2"
+                android:textColor="#54000000"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <TextView
+                android:id="@+id/link4_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Ссылка 4"
+                android:textColor="#87000000"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/info2_tv" />
+
+            <TextView
+                android:id="@+id/info3_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Инфо 3"
+                android:textColor="#38000000"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/link4_tv" />
+
+            <View
+                android:id="@+id/view_divider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/info3_tv" />
+
+            <TextView
+                android:id="@+id/tag1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="#Тег1"
+                android:textColor="#5f6cba"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_divider" />
+
+            <TextView
+                android:id="@+id/tag2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="#Тег2"
+                android:textColor="#5f6cba"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/tag1"
+                app:layout_constraintTop_toBottomOf="@+id/view_divider" />
+
+            <ImageButton
+                android:id="@+id/save"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_divider"
+                app:srcCompat="@drawable/ic_bookmark_black_24dp"
+                tools:ignore="VectorDrawableCompat" />
+
+            <ImageButton
+                android:id="@+id/share"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="8dp"
+                android:background="@null"
+                app:layout_constraintEnd_toStartOf="@+id/save"
+                app:layout_constraintTop_toBottomOf="@+id/view_divider"
+                app:srcCompat="@drawable/megaphone" />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+</android.support.constraint.ConstraintLayout>
