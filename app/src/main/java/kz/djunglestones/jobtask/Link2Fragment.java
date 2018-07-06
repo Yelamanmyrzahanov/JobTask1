@@ -58,9 +58,23 @@ public class Link2Fragment extends Fragment {
             }
         });
         recyclerView  = v.findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(getContext(),link2DataList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(recyclerViewAdapter);
+//        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+//            @Override
+//            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+//                super.onScrollStateChanged(recyclerView, newState);
+//                ((MainActivity) getActivity()).onScrollStateChanged(recyclerView, newState);
+//            }
+//
+//            @Override
+//            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+//                super.onScrolled(recyclerView, dx, dy);
+//                ((MainActivity) getActivity()).onScrolled(recyclerView, dx,dy);
+//            }
+//        });
         return v;
     }
 
@@ -71,5 +85,7 @@ public class Link2Fragment extends Fragment {
         link2DataList = new ArrayList<>();
         link2DataList.add(new Link2Data("Инфо 2","Ccылка 4","Инфо 3","#tag1","#tag1",R.drawable.mount1));
         link2DataList.add(new Link2Data("Инфо 5","Ccылка 5","Инфо 6","#tag3","#tag4",R.drawable.mount2));
+        link2DataList.add(new Link2Data("Инфо 5","Ccылка 5","Инфо 6","#tag3","#tag4",R.drawable.mount2));
+        link2DataList.add(new Link2Data("Инфо 2","Ccылка 4","Инфо 3","#tag1","#tag1",R.drawable.mount1));
     }
 }

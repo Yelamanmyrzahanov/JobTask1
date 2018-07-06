@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -290,9 +291,56 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu,menu);
 
-        MenuItem menuSearch = menu.findItem(R.id.search);
+        MenuItem menuSearch = menu.findItem(R.id.search_menu);
         materialSearchView.setMenuItem(menuSearch);
+//        menuSearch.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem item) {
+//                spinnerHide();
+//                return true;
+//            }
+//        });
 
         return super.onCreateOptionsMenu(menu);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.search_menu:
+//                spinnerHide();
+                Log.i("onOptionsItemSelected: ", "onOptionsItemSelected: SEARCH");
+        }
+        return super.onOptionsItemSelected(item);
+    }
+//
+    @Override
+    public void onBackPressed() {
+        if (materialSearchView.isSearchOpen()) {
+            spinner.setVisibility(View.VISIBLE);
+            materialSearchView.closeSearch();
+        } else {
+            super.onBackPressed();
+        }
+    }
+//
+    public void spinnerHide(){
+
+//        spinner.setVisibility(View.GONE);
+        materialSearchView.setVisibility(View.VISIBLE);
+
+    }
+
+//    public void onScrollStateChanged(final RecyclerView recyclerView, final int newState) {
+//        switch (newState) {
+//            case RecyclerView.SCROLL_STATE_IDLE:
+//                toolbar
+//                mLastDy = 0;
+//                break;
+//        }
+//    }
+//
+//    public void onScrolled(final RecyclerView recyclerView, final int dx, final int dy) {
+//        mLastDy = dy == 0 ? mLastDy : dy;
+//    }
 }
