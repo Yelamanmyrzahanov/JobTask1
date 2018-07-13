@@ -34,6 +34,7 @@
                     android:layout_marginLeft="32dp"
                     android:background="@null"
                     android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    android:popupBackground="@android:color/white"
                     android:spinnerMode="dropdown">
                 </Spinner>
 

@@ -6,10 +6,24 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">#5f6cba</item>
+        <item name="apcStyles">@style/AppPageControlStyle</item>
     </style>
 
     <style name="CustomTabText" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">12sp</item>
+    </style>
+    <style name="AppPageControlStyle">
+        <!-- To change indicator size -->
+        <item name="apc_indicatorSize">4dp</item>
+        <!-- To change distance between indicators -->
+        <item name="apc_indicatorDistance">4dp</item>
+        <!-- To change current item indicator size -->
+        <item name="apc_currentIndicatorSize">4dp</item>
+        <!-- To change indicator colors -->
+        <item name="apc_colorCurrentDefault">#4D4D4D</item>
+        <item name="apc_colorCurrentPressed">#a7ffeb</item>
+        <item name="apc_colorNormalDefault">#15000000</item>
+        <item name="apc_colorNormalPressed">#4db6ac</item>
     </style>
 
 

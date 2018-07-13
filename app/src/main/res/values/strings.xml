@@ -8,6 +8,18 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search_menu_text">Search...</string>
     <string name="link2_frag_text">Link2</string>
+    <string name="first_fragment_welcometext">Добро\nпожаловать!</string>
+    <string name="sec_frag_reg_text">Регистрация</string>
+    <string name="sec_frag_skip_btn">ПРОПУСТИТЬ</string>
+    <string name="sec_frag_main_phone_num_text">НОМЕР ТЕЛЕФОНА</string>
+    <string name="sec_frag_name_hint">ИМЯ / ФАМИЛИЯ</string>
+    <string name="sec_frag_mail_hint">EMAIL</string>
+    <string name="sec_frag_sign_up_text">Зарегестрируйтесь, чтобы получить</string>
+    <string name="third_frag_request_code_hint">ВВЕДИТЕ КОД ПОДТВЕРЖДЕНИЯ</string>
+    <string name="third_frag_resend_code_text">ОТПРАВИТЬ КОД ПОВТОРНО</string>
+    <string name="third_fragment_accept_terms">Регистрируясь, вы автоматически\nсоглашаетесь с нашими <a href="https://www.google.kz/">Условиями использования</a> и \n<a href="https://www.google.kz/">Политика Конфиденциальности</a></string>
+    <string name="fourth_frag_congrat">Поздравляем!</string>
+    <string name="fourth_frag_congrat_full_text">Вы успешно зарегистрировались.\n Теперь вы можете начать пользоваться приложением.</string>
     <string-array name="links">
         <item>Меню</item>
         <item>Меню 1</item>

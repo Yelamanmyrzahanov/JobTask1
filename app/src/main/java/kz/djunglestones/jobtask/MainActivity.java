@@ -61,9 +61,6 @@ public class MainActivity extends AppCompatActivity {
         mediumFont = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Medium.ttf");
         linkFont = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Regular.ttf");
 
-
-
-
         arrayAdapter = new ArrayAdapter<String>(MainActivity.this,
                 R.layout.custom_spinner_item,
                 getResources().getStringArray(R.array.links)){
@@ -90,8 +87,8 @@ public class MainActivity extends AppCompatActivity {
         spinner.setAdapter(arrayAdapter);
 
         tabLayout = findViewById(R.id.tab_layout);
-        TabLayout.Tab tab = tabLayout.getTabAt(1);
-        tab.select();
+//        TabLayout.Tab tab = tabLayout.getTabAt(2);
+//        tab.select();
 
         setCustomFont();
 
@@ -104,6 +101,9 @@ public class MainActivity extends AppCompatActivity {
         link3 =findViewById(R.id.link3);
 
         viewPager = findViewById(R.id.viewPager);
+        viewPager.setCurrentItem(2);
+
+
 
         pageAdapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         pageAdapter.setSpinnerSelected(false);
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        viewPager.setCurrentItem(1);
+//        selectTab(2);
         changeLink1Color();
 
         materialSearchView = findViewById(R.id.search_view);
@@ -243,6 +243,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void selectTab(int pageIndex) {
+        tabLayout.setScrollPosition(pageIndex,0f,true);
+        viewPager.setCurrentItem(pageIndex);
+        viewPager.setAdapter(pageAdapter);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+    }
+
     public void setCustomFont() {
 
         ViewGroup vg = (ViewGroup) tabLayout.getChildAt(0);
@@ -331,16 +338,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    public void onScrollStateChanged(final RecyclerView recyclerView, final int newState) {
-//        switch (newState) {
-//            case RecyclerView.SCROLL_STATE_IDLE:
-//                toolbar
-//                mLastDy = 0;
-//                break;
-//        }
-//    }
-//
-//    public void onScrolled(final RecyclerView recyclerView, final int dx, final int dy) {
-//        mLastDy = dy == 0 ? mLastDy : dy;
-//    }
 }

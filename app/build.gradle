@@ -29,4 +29,7 @@ dependencies {
     implementation 'com.android.support:design:27.1.1'
     compile 'com.miguelcatalan:materialsearchview:1.4.0'
     implementation 'com.android.support:cardview-v7:27.1.1'
+    compile 'com.ramotion.paperonboarding:paper-onboarding:1.1.1'
+    compile 'com.github.ksoichiro:androidpagecontrol:0.1.1'
+    compile 'com.android.support:support-v4:27.1.1'
 }
