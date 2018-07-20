@@ -2,6 +2,7 @@ package kz.djunglestones.jobtask;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.androidpagecontrol.PageControl;
 
@@ -17,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SplashScreenActivity extends AppCompatActivity {
-    private ViewPager mSlideViewPager;
+    private NonSwipeableViewPager mSlideViewPager;
     private LinearLayout mDotLayout;
     private ImageButton goForward;
     private WelcomePageAdapter welcomePageAdapter;
@@ -32,8 +34,11 @@ public class SplashScreenActivity extends AppCompatActivity {
         welcomePageAdapter = new WelcomePageAdapter(getSupportFragmentManager());
         mSlideViewPager.setAdapter(welcomePageAdapter);
 
+
+
         final PageControl pageControl = (PageControl) findViewById(R.id.page_control);
         pageControl.setViewPager(mSlideViewPager);
+        pos = mSlideViewPager.getCurrentItem();
         pageControl.setPosition(pos);
         goForward = findViewById(R.id.btn_forward);
         goForward.setOnClickListener(new View.OnClickListener() {
@@ -44,8 +49,15 @@ public class SplashScreenActivity extends AppCompatActivity {
                     pageControl.setPosition(pos);
                     if (pos==3){
                         pos+=1;
+                    }else if(pos ==1){
+                        Toast.makeText(SplashScreenActivity.this,"2nd Fragment",Toast.LENGTH_LONG).show();
+//                        pageControl.setClickable(false);
+//                        pageControl.setEnabled(true);
+//                        goForward.setBackgroundColor(Color.GRAY);
+
                     }
                 }
+
                 else if (pos==4){
                     Intent mainIntent = new Intent(SplashScreenActivity.this,MainActivity.class);
                     pos=0;
@@ -54,42 +66,6 @@ public class SplashScreenActivity extends AppCompatActivity {
 
                 }
                 Log.i("COUNTER", "onClick: "+pos);
-            }
-        });
-        mSlideViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            boolean lastPageChange = false;
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                int lastIndex = welcomePageAdapter.getCount()-1;
-
-                Log.d("POS", "onPageScrolled: "+position);
-                if (lastPageChange && position == lastIndex){
-                    Intent mainIntent = new Intent(SplashScreenActivity.this,MainActivity.class);
-                    startActivity(mainIntent);
-                    finish();
-                }
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                int lastIdx = welcomePageAdapter.getCount()-1;
-
-                int currentItem = mSlideViewPager.getCurrentItem();
-                if(currentItem == lastIdx && state ==1){
-
-                    lastPageChange = true;
-
-
-                }
-                else {
-                    lastPageChange = false;
-                }
-
             }
         });
     }

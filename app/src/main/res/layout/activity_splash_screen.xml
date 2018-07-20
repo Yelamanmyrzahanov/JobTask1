@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashScreenActivity">
+    tools:context=".SplashScreenActivity"
+    android:background="@android:color/white">
 
 
     <ImageButton
@@ -18,27 +19,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"></ImageButton>
 
-    <LinearLayout
-        android:id="@+id/dotsLayout"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
+
+    <com.androidpagecontrol.PageControl
+        android:id="@+id/page_control"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginBottom="19dp"
+        android:background="@android:color/white"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/btn_forward"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <com.androidpagecontrol.PageControl
-            android:id="@+id/page_control"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
-    <android.support.v4.view.ViewPager
+    <kz.djunglestones.jobtask.NonSwipeableViewPager
         android:id="@+id/slideViewPager"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/dotsLayout"
+        app:layout_constraintBottom_toTopOf="@+id/page_control"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

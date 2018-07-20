@@ -26,14 +26,14 @@ public class FirstFragment extends Fragment{
         return inflater.inflate(R.layout.fragment_first, container, false);
     }
 
-    public static FirstFragment newInstance(String text){
-        FirstFragment firstFragment = new FirstFragment();
-        Bundle b = new Bundle();
-        b.putString("msg",text);
-
-        firstFragment.setArguments(b);
-
-        return firstFragment;
-    }
+//    public static FirstFragment newInstance(String text){
+//        FirstFragment firstFragment = new FirstFragment();
+//        Bundle b = new Bundle();
+//        b.putString("msg",text);
+//
+//        firstFragment.setArguments(b);
+//
+//        return firstFragment;
+//    }
 
 }

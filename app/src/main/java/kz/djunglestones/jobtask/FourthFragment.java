@@ -25,14 +25,14 @@ public class FourthFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_fourth, container, false);
     }
 
-    public static FourthFragment newInstance(String text){
-        FourthFragment fragment= new FourthFragment();
-        Bundle b = new Bundle();
-        b.putString("msg",text);
-
-        fragment.setArguments(b);
-
-        return fragment;
-    }
+//    public static FourthFragment newInstance(String text){
+//        FourthFragment fragment= new FourthFragment();
+//        Bundle b = new Bundle();
+//        b.putString("msg",text);
+//
+//        fragment.setArguments(b);
+//
+//        return fragment;
+//    }
 
 }

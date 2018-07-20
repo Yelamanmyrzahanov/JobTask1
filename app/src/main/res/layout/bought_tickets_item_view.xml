@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/tickets_bought_cardview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ticket_image"
+                android:layout_width="160dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/ticket_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/roboto"
+                android:text="Cб, Фев 13, 18:00"
+                android:textColor="@color/card_tickets_date_color"
+                app:layout_constraintStart_toEndOf="@+id/ticket_image"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ticket_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/roboto"
+                android:text="Алматы"
+                android:textColor="@color/sec_frag_name_col"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ticket_image" />
+
+            <TextView
+                android:id="@+id/ticket_event_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="left|center"
+                android:lineSpacingExtra="8sp"
+                android:text="@string/cardview_ticket_event_name"
+                android:textAlignment="viewStart"
+                android:textColor="@color/crdview_ticket_event_color"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/ticket_location"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ticket_image"
+                app:layout_constraintTop_toBottomOf="@+id/ticket_date" />
+
+            <View
+                android:id="@+id/viewTickets"
+                android:layout_width="0dp"
+                android:layout_height="23dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="@+id/ticket_image"
+                app:layout_constraintEnd_toEndOf="@+id/ticket_image"
+                app:layout_constraintStart_toStartOf="@+id/ticket_image" />
+
+            <TextView
+                android:id="@+id/ticket_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/roboto"
+                android:text="1 билет"
+                android:textAlignment="textStart"
+                android:textColor="@color/sec_frag_phone_code_col"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/viewTickets"
+                app:layout_constraintStart_toStartOf="@+id/viewTickets"
+                app:layout_constraintTop_toTopOf="@+id/viewTickets" />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+
+</android.support.constraint.ConstraintLayout>

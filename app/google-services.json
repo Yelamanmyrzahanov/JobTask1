@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "449957500567",
+    "firebase_url": "https://jobtask-cf3d9.firebaseio.com",
+    "project_id": "jobtask-cf3d9",
+    "storage_bucket": "jobtask-cf3d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:449957500567:android:f76f9657644df908",
+        "android_client_info": {
+          "package_name": "kz.djunglestones.jobtask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "449957500567-rjrgsq6v6qt0vlvv503e31ig3df0tmou.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3CF4IQ9_jLjahcebQI71EtLiURKeTJNg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import id.zelory.compressor.Compressor;
+
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>{
 
     Context mContext;

@@ -2,20 +2,31 @@ package kz.djunglestones.jobtask;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class SecondFragment extends Fragment {
-    private Button skipBtn;
+    private TextView skipBtn;
     View v;
+    private EditText phone_main_editText;
+    private EditText username;
+    private EditText phone_code_edittext;
+    private EditText email;
+
 
     public SecondFragment() {
         // Required empty public constructor
@@ -37,7 +48,26 @@ public class SecondFragment extends Fragment {
 
             }
         });
+
+        phone_main_editText = v.findViewById(R.id.phone_main_editText);
+        phone_main_editText.setTextColor(Color.BLACK);
+        phone_code_edittext = v.findViewById(R.id.phone_code_edittext);
+        phone_code_edittext.setTextColor(Color.BLACK);
+        username = v.findViewById(R.id.name_editText);
+        username.setHintTextColor(getResources().getColor(R.color.sec_frag_main_num_col));
+        username.setTextColor(Color.BLACK);
+//        username.setTextSize(TypedValue.COMPLEX_UNIT_SP,16);
+        email = v.findViewById(R.id.email_editText);
+        email.setHintTextColor(getResources().getColor(R.color.sec_frag_main_num_col));
+        email.setTextColor(Color.BLACK);
+//        email.setTextSize(TypedValue.COMPLEX_UNIT_SP,16);
+        requestHint();
+
         return v;
+    }
+
+    private void requestHint() {
+        
     }
 
     public static SecondFragment newInstance(String text){

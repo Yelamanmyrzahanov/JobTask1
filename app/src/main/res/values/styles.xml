@@ -7,10 +7,12 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">#5f6cba</item>
         <item name="apcStyles">@style/AppPageControlStyle</item>
+        <item name="android:textColorHint">@color/sec_frag_main_num_col</item>
     </style>
 
     <style name="CustomTabText" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
     <style name="AppPageControlStyle">
         <!-- To change indicator size -->
@@ -21,10 +23,32 @@
         <item name="apc_currentIndicatorSize">4dp</item>
         <!-- To change indicator colors -->
         <item name="apc_colorCurrentDefault">#4D4D4D</item>
-        <item name="apc_colorCurrentPressed">#a7ffeb</item>
-        <item name="apc_colorNormalDefault">#15000000</item>
-        <item name="apc_colorNormalPressed">#4db6ac</item>
+        <item name="apc_colorCurrentPressed">#4D4D4D</item>
+        <item name="apc_colorNormalDefault">#ffffff</item>
+        <item name="apc_colorNormalPressed">#ffffff</item>
     </style>
+
+    <style name="MyEditTextTheme" >
+        <!-- Used for the bottom line when not selected / focused -->
+        <item name="colorControlNormal">#38000000</item>
+        <item name="android:textColor">@color/sec_frag_skip_btn_col</item>
+        <item name="android:textSize">16sp</item>
+        <!-- colorControlActivated & colorControlHighlight use the colorAccent color by default -->
+    </style>
+
+    <style name="ToolbarColoredBackArrow" parent="AppTheme">
+        <item name="android:textColorSecondary">#ffffff</item>
+    </style>
+
+    <!--<style name="EditTextAppearance" parent="@android:style/TextAppearance.Widget.EditText">-->
+        <!--<item name="android:textSize">16sp</item>-->
+        <!--<item name="android:textColor">@android:color/black</item> &lt;!&ndash; APPLIED if appearance is part of the theme &ndash;&gt;-->
+    <!--</style>-->
+
+    <!--<style name="EditTextTheme" parent="Base.V7.Widget.AppCompat.EditText">-->
+        <!--<item name="colorControlNormal"></item>-->
+        <!--<item name="editTextStyle">@style/EditTextAppearance</item>-->
+    <!--</style>-->
 
 
 </resources>
