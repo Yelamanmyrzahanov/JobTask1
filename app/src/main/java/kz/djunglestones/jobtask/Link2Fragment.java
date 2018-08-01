@@ -86,9 +86,9 @@ public class Link2Fragment extends Fragment {
         super.onCreate(savedInstanceState);
 //        File compressToFile = new Compressor(getContext()).compressToFile(R.drawable.);
         link2DataList = new ArrayList<>();
-        link2DataList.add(new Link2Data("Сб, Фев 13, 18:00","Ccылка 4","Инфо 3","#tag1","#tag1",R.drawable.mount1));
-        link2DataList.add(new Link2Data("Инфо 5","Ccылка 5","Инфо 6","#tag3","#tag4",R.drawable.mount2));
-        link2DataList.add(new Link2Data("Инфо 5","Ccылка 5","Инфо 6","#tag3","#tag4",R.drawable.mount2));
-        link2DataList.add(new Link2Data("Инфо 2","Ccылка 4","Инфо 3","#tag1","#tag1",R.drawable.mount1));
+        link2DataList.add(new Link2Data("Сб, Фев 13, 18:00","Ccылка 4","Инфо 3",R.drawable.mount1));
+        link2DataList.add(new Link2Data("Инфо 5","Ccылка 5","Инфо 6",R.drawable.mount2));
+        link2DataList.add(new Link2Data("Инфо 5","Ccылка 5","Инфо 6",R.drawable.mount2));
+        link2DataList.add(new Link2Data("Инфо 2","Ccылка 4","Инфо 3",R.drawable.mount1));
     }
 }

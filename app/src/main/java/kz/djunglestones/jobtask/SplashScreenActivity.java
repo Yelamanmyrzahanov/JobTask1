@@ -3,6 +3,7 @@ package kz.djunglestones.jobtask;
 import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.Color;
+import android.provider.Settings;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -59,7 +60,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 }
 
                 else if (pos==4){
-                    Intent mainIntent = new Intent(SplashScreenActivity.this,MainActivity.class);
+                    Intent mainIntent = new Intent(SplashScreenActivity.this,SettingsActivity.class);
                     pos=0;
                     startActivity(mainIntent);
                     finish();

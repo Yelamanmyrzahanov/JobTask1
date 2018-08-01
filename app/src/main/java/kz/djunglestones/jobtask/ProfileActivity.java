@@ -1,20 +1,32 @@
 package kz.djunglestones.jobtask;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
 import me.fahmisdk6.avatarview.AvatarView;
 
@@ -28,6 +40,8 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView tabTextView0,tabTextView,tabTextView2;
     private LinearLayout tabLayout0,tabLayout1,tabLayout2;
     private Typeface mediumFont,regularFont;
+    private Uri mainImageUri;
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +51,28 @@ public class ProfileActivity extends AppCompatActivity {
         setSupportActionBar(profileToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        avatarView5 = (AvatarView) findViewById(R.id.profile_avatar);
+        avatarView5 = findViewById(R.id.profile_avatar);
         avatarView5.bind("Нариман Дуйсеков", "https://avatars2.githubusercontent.com");
+
+        avatarView5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN){
+                    if (ContextCompat.checkSelfPermission(ProfileActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
+
+                        Toast.makeText(ProfileActivity.this,"Permission Denied",Toast.LENGTH_LONG).show();
+                        ActivityCompat.requestPermissions(ProfileActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},1);
+                    }
+                    else{
+                        CropImage.activity()
+                                .setGuidelines(CropImageView.Guidelines.ON)
+                                .setAspectRatio(1,1)
+                                .start(ProfileActivity.this);
+
+                    }
+                }
+            }
+        });
 
         mediumFont = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Medium.ttf");
         tabLayout = findViewById(R.id.profile_tablayout);
@@ -52,7 +86,7 @@ public class ProfileActivity extends AppCompatActivity {
         profileViewPagerAdapter = new ProfileViewPagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(profileViewPagerAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-
+        setCustomTabFont();
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -122,6 +156,28 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
+    private void setCustomTabFont() {
+        ViewGroup vg = (ViewGroup) tabLayout.getChildAt(0);
+        int tabsCount = vg.getChildCount();
+
+        for (int j = 0; j < tabsCount; j++) {
+            ViewGroup vgTab = (ViewGroup) vg.getChildAt(j);
+
+            int tabChildsCount = vgTab.getChildCount();
+
+            for (int i = 0; i < tabChildsCount; i++) {
+                View tabViewChild = vgTab.getChildAt(i);
+                if (tabViewChild instanceof TextView) {
+                    //Put your font in assests folder
+                    //assign name of the font here (Must be case sensitive)
+                    ((TextView) tabViewChild).setTypeface(mediumFont, Typeface.BOLD);
+                    ((TextView) tabViewChild).setTextSize(TypedValue.COMPLEX_UNIT_SP,12);
+                }
+            }
+        }
+    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -137,8 +193,31 @@ public class ProfileActivity extends AppCompatActivity {
 //            }
 //        });
 
+        MenuItem settingsMenu = menu.findItem(R.id.settingsSubMenu);
+        settingsMenu.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent settingsIntent = new Intent(ProfileActivity.this,SettingsMainActivity.class);
+                startActivity(settingsIntent);
+                return true;
+            }
+        });
+
         return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == RESULT_OK) {
+                mainImageUri = result.getUri();
+                avatarView5.bind("Yelaman Myrzakhanov", String.valueOf(mainImageUri));
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                Exception error = result.getError();
+            }
+        }
+    }
 }

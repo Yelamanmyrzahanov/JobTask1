@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrderBreakDownActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/order_break_down_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:titleMarginStart="8dp"
+        android:elevation="2dp"/>
+
+    <ImageView
+        android:id="@+id/order_break_down_image"
+        android:layout_width="0dp"
+        android:layout_height="96dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/mount2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_break_down_toolbar" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/back_transparent_background"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#303030"
+        android:alpha="0.9"
+        app:layout_constraintBottom_toBottomOf="@+id/order_break_down_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/order_break_down_image">
+
+        <TextView
+            android:id="@+id/order_break_down_event_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Семинар: как за 2 месяца выучить английский язык"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/order_break_down_event_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/order_break_down_event_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Friday, 19 feb * 19:00"
+            android:textColor="#70ffffff"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/order_break_down_event_name" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/order_break_down_cardview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_break_down_image">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/first_constraint_card"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:clickable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RelativeLayout
+                    android:id="@+id/order_break_tickets_amount_relative_layout"
+                    android:layout_width="57dp"
+                    android:layout_height="57dp"
+                    android:background="@color/colorPrimary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/order_break_tickets_amount_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/roboto_light"
+                        android:gravity="center"
+                        android:text="2"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/order_break_down_ticket_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:fontFamily="@font/roboto_light"
+                    android:text="Early Bird Билет"
+                    android:textColor="#87000000"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/order_break_tickets_amount_relative_layout"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/order_break_down_ticket_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/roboto_light"
+                    android:text="500 т"
+                    android:textColor="#87000000"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/view7"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
+                    android:alpha="0.12"
+                    android:background="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/second_constraint_layout_card"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/first_constraint_card">
+
+                <TextView
+                    android:id="@+id/order_break_down_total_amount_tickets"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Total"
+                    android:textColor="#63be87"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/order_break_down_total_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="1000 т"
+                    android:textColor="#63be87"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/order_break_down_bottom_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#303030"
+        android:alpha="0.9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <TextView
+            android:id="@+id/order_break_down_quantity_and_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Quantity:2\ntotal: 1,000т"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toTopOf="@+id/order_break_down_complete_order_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/order_break_down_complete_order_btn"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/buy_ticket_radius_button"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Complete Order"
+            android:textColor="#ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_light"
+            android:text="VISA 8354"
+            android:textColor="#50ffffff"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/credit_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_credit_card_white_24dp" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>

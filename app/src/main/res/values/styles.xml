@@ -12,7 +12,6 @@
 
     <style name="CustomTabText" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">12sp</item>
-        <item name="android:textStyle">bold</item>
     </style>
     <style name="AppPageControlStyle">
         <!-- To change indicator size -->
@@ -38,6 +37,12 @@
 
     <style name="ToolbarColoredBackArrow" parent="AppTheme">
         <item name="android:textColorSecondary">#ffffff</item>
+    </style>
+
+    <style name="SettigsToolbarTextStyleCustom" parent="AppTheme">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
     </style>
 
     <!--<style name="EditTextAppearance" parent="@android:style/TextAppearance.Widget.EditText">-->

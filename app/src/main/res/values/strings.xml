@@ -33,4 +33,26 @@
         <item>Актау</item>
         <item>Атырау</item>
     </string-array>
+    <string-array name="themes">
+        <item>Музыка</item>
+        <item>Бизнес</item>
+        <item>Еда и Напитки</item>
+        <item>Сообщество</item>
+        <item>Искусство</item>
+        <item>Кино и Медиа</item>
+        <item>Спорт и Фитнес</item>
+        <item>Здоровье и Красота</item>
+        <item>Наука и Техника</item>
+        <item>Путешествие и Туры</item>
+        <item>Семья</item>
+        <item>Образование</item>
+        <item>Правительство</item>
+        <item>Религия</item>
+        <item>Благотворительность</item>
+        <item>Развлечение</item>
+        <item>Обучение</item>
+        <item>Юмор</item>
+        <item>Мода и Стиль</item>
+        <item>Активный отдых</item>
+    </string-array>
 </resources>

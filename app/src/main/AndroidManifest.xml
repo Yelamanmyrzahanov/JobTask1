@@ -2,13 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kz.djunglestones.jobtask">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_logo_2"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_logo2_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDVmANTSQlGN-HjRaMRFvtQzGzsGUkyjTU" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +31,7 @@
         <activity
             android:name=".EmptyActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".SplashScreenActivity"></activity>
+        <activity android:name=".SplashScreenActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
@@ -27,6 +39,20 @@
 
         <activity
             android:name=".ProfileActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".BuyTicketsActivity" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" /> <!-- optional (needed if default theme has no action bar) -->
+        <activity
+            android:name=".ViewEventActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".SettingsActivity">
+        </activity>
+        <activity android:name=".SettingsMainActivity" />
+        <activity android:name=".OrderBreakDownActivity" />
+        <activity android:name=".OrderCompleteActivity" />
+        <activity android:name=".LocationActivity"
             android:parentActivityName=".MainActivity"></activity>
     </application>
 

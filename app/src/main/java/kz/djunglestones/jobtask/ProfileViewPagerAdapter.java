@@ -16,11 +16,11 @@ public class ProfileViewPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return new BlankTicketsFragment();
-            case 1:
                 return new TicketsBoughtsFragment();
+            case 1:
+                return new BlankTicketsFragment();
             case 2:
-                return new BlankFragment();
+                return new BlankTicketsFragment();
             default:
                 return new BlankFragment();
         }

@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewEventActivity"
+    android:background="@color/background"
+    android:overScrollMode="never">
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/main_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/first_constraint_layout"
+            android:layout_width="match_parent"
+            android:background="@android:color/white"
+            android:layout_height="wrap_content"
+            android:elevation="2dp">
+
+            <RelativeLayout
+                android:id="@+id/relative_event_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/eventImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/mount7" />
+
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/viewEventToolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/view_event_gradient_background"
+                    android:minHeight="?attr/actionBarSize"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/event_date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/roboto"
+                android:text="Cб, 20 ФЕВ, 19:00"
+                android:textColor="@color/black_textviews"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relative_event_layout" />
+
+            <TextView
+                android:id="@+id/event_name_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="14dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Семинар: Как за 2 месяца выучить английский язык"
+                android:textAlignment="center"
+                android:textColor="@color/black_textviews"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/event_date_tv" />
+
+            <TextView
+                android:id="@+id/event_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="22dp"
+                android:fontFamily="@font/roboto"
+                android:lineSpacingExtra="8sp"
+                android:text='Вы бы хотели научиться разговаривать на английском языке за 2 месяца? Если - "да", тогда приходите на бесплатный семинар и узнайте как это сделать'
+                android:textAlignment="viewStart"
+                android:textColor="@color/card_tickets_date_color"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/event_name_tv" />
+
+            <fragment
+                android:id="@+id/event_mapView"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="22dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/event_description"/>
+
+            <TextView
+                android:id="@+id/event_city_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Almaty"
+                android:textColor="@color/black_textviews"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/event_mapView" />
+
+            <TextView
+                android:id="@+id/event_street_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="ул.Фурманова, 150"
+                android:textColor="@color/sec_frag_phone_code_col"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/event_city_tv" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/popular_category_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/roboto_light"
+            android:text="Популярно в образовании"
+            android:textAllCaps="true"
+            android:textColor="#808080"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/company_constraint_layout" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/second_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:elevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/popular_category_tv">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/event_card_recyclerview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:scrollbars="horizontal"
+                app:layout_constraintStart_toStartOf="parent"></android.support.v7.widget.RecyclerView>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/bottom_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#303030"
+                android:elevation="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/event_card_recyclerview">
+
+                <TextView
+                    android:id="@+id/event_cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Бесплатно"
+                    android:textAllCaps="true"
+                    android:textColor="#ffffff"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/bottom_constraint_layout" />
+
+                <Button
+                    android:id="@+id/event_buy_tickets_btn"
+                    android:layout_width="340dp"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/buy_ticket_radius_button"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Купить билеты"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:textAllCaps="true"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/event_cost" />
+
+            </android.support.constraint.ConstraintLayout>
+
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/company_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@+id/first_constraint_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="18dp"
+            android:elevation="2dp"
+            >
+            <android.support.v7.widget.CardView
+                android:id="@+id/company_cardview"
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/company_constraint_layout_cardview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/cardView_company_image"
+                        android:layout_width="124dp"
+                        android:layout_height="62dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginTop="18dp"
+                        android:src="@drawable/mount7"
+                        android:adjustViewBounds="true"/>
+
+                    <TextView
+                        android:id="@+id/cardView_company_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="MSLM company"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textColor="#404040"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cardView_company_image" />
+
+                    <TextView
+                        android:id="@+id/cardView_company_events_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="7 мероприятий"
+                        android:textAllCaps="true"
+                        android:textColor="#969696"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView_company_name" />
+
+                    <Button
+                        android:id="@+id/company_contact_btn"
+                        android:layout_width="123dp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="18dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/company_contact_btn_background"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Связаться"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:textColor="#404040"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cardView_company_events_count" />
+
+
+
+                </android.support.constraint.ConstraintLayout>
+
+
+
+            </android.support.v7.widget.CardView>
+        </android.support.constraint.ConstraintLayout>
+
+
+
+
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+
+</android.support.v4.widget.NestedScrollView>

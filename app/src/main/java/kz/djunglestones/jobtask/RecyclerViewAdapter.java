@@ -2,7 +2,6 @@ package kz.djunglestones.jobtask;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,8 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
-
-import id.zelory.compressor.Compressor;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>{
 
@@ -43,36 +40,36 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.info2.setText(link2DataList.get(position).getInfo2());
         holder.link4.setText(link2DataList.get(position).getLink4());
         holder.info3.setText(link2DataList.get(position).getInfo3());
-        holder.tag1.setText(link2DataList.get(position).getTag1());
-        holder.tag2.setText(link2DataList.get(position).getTag2());
+//        holder.tag1.setText(link2DataList.get(position).getTag1());
+//        holder.tag2.setText(link2DataList.get(position).getTag2());
         holder.mainImage.setImageResource(link2DataList.get(position).getImage());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext,EmptyActivity.class);
+                Intent intent = new Intent(mContext,ViewEventActivity.class);
                 mContext.startActivity(intent);
             }
         });
-        holder.share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext,EmptyActivity.class);
-                mContext.startActivity(intent);
-            }
-        });
+//        holder.share.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(mContext,EmptyActivity.class);
+//                mContext.startActivity(intent);
+//            }
+//        });
 
-        holder.save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext,EmptyActivity.class);
-                mContext.startActivity(intent);
-            }
-        });
+//        holder.save.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(mContext,EmptyActivity.class);
+//                mContext.startActivity(intent);
+//            }
+//        });
 
         holder.mainImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext,EmptyActivity.class);
+                Intent intent = new Intent(mContext,ViewEventActivity.class);
                 mContext.startActivity(intent);
             }
         });
@@ -80,8 +77,29 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext,EmptyActivity.class);
+                Intent intent = new Intent(mContext,ViewEventActivity.class);
                 mContext.startActivity(intent);
+            }
+        });
+
+        holder.buy_tickets_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent buyTicketsIntent = new Intent(mContext,OrderBreakDownActivity.class);
+                mContext.startActivity(buyTicketsIntent);
+            }
+        });
+
+        holder.share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                String shareBody = "Body text (Testing share button)";
+                String shareSub = "Subject text (Testing share button)";
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT,shareBody);
+                shareIntent.putExtra(Intent.EXTRA_TEXT,shareSub);
+                mContext.startActivity(Intent.createChooser(shareIntent,"Поделиться"));
             }
         });
     }
@@ -93,7 +111,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView info2, link4, info3, tag1,tag2;
+        private TextView info2, link4, info3, buy_tickets_btn;
         private ImageView mainImage;
         private Button info;
         private ImageButton share,save;
@@ -111,8 +129,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             link4 = itemView.findViewById(R.id.link4_tv);
             info3 = itemView.findViewById(R.id.info3_tv);
 
-            tag1 = itemView.findViewById(R.id.tag1);
-            tag2 = itemView.findViewById(R.id.tag2);
+            buy_tickets_btn = itemView.findViewById(R.id.buy_tickets_btn);
+//            tag2 = itemView.findViewById(R.id.tag2);
 
             share = itemView.findViewById(R.id.share);
             save = itemView.findViewById(R.id.save);

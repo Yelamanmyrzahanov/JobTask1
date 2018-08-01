@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".SettingsActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/settings_first_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/settings_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <TextView
+                android:id="@+id/settings_toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Настройки"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="120dp"
+                tools:layout_editor_absoluteY="18dp" />
+
+            <ImageButton
+                android:id="@+id/settings_goForwardBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:layout_margin="20dp"
+                android:background="@null"
+                android:src="@drawable/ic_arrow_forward_white_24dp"
+                />
+        </android.support.v7.widget.Toolbar>
+
+
+        <TextView
+            android:id="@+id/settings_text_theme"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginBottom="32dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
+            android:text="Выберите интересующие вас темы для персональных настроек\n(минимум - 3 темы)"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settings_toolbar" />
+    </android.support.constraint.ConstraintLayout>
+
+    <com.adroitandroid.chipcloud.ChipCloud xmlns:chipcloud="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/chip_cloud"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        chipcloud:layout_constraintEnd_toEndOf="parent"
+        chipcloud:layout_constraintStart_toStartOf="parent"
+        chipcloud:layout_constraintTop_toBottomOf="@+id/settings_first_constraint_layout"
+        chipcloud:minHorizontalSpacing="16dp"
+        chipcloud:textSize="14sp"
+        chipcloud:verticalSpacing="16dp" />
+
+
+
+
+</android.support.constraint.ConstraintLayout>
+
+    <!--<Button-->
+    <!--android:id="@+id/settings_music_category"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="32dp"-->
+    <!--android:layout_marginEnd="16dp"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:background="@drawable/category_btn_radius_background"-->
+    <!--android:fontFamily="@font/roboto_regular"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:text="Музыка"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="#707070"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintEnd_toStartOf="@+id/settings_business_category"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/settings_first_constraint_layout" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/settings_business_category"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="32dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:background="@drawable/category_btn_radius_background"-->
+    <!--android:fontFamily="@font/roboto_regular"-->
+    <!--android:text="Бизнес"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="#707070"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintEnd_toStartOf="@+id/settings_family_category"-->
+    <!--app:layout_constraintStart_toEndOf="@+id/settings_music_category"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/settings_first_constraint_layout" />-->
+
+
+    <!--<Button-->
+    <!--android:id="@+id/settings_food_category"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="32dp"-->
+    <!--android:layout_marginEnd="16dp"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:background="@drawable/category_btn_radius_background"-->
+    <!--android:fontFamily="@font/roboto_regular"-->
+    <!--android:text="Еда и Напитки"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="#707070"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toEndOf="@+id/settings_health_and_beauty_category"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/settings_active_rest_category" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/settings_community_category"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="32dp"-->
+    <!--android:layout_marginEnd="16dp"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:background="@drawable/category_btn_radius_background"-->
+    <!--android:fontFamily="@font/roboto_regular"-->
+    <!--android:text="Сообщество"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="#707070"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintEnd_toStartOf="@+id/settings_art_category"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/settings_music_category" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/settings_art_category"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="32dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:background="@drawable/category_btn_radius_background"-->
+    <!--android:fontFamily="@font/roboto_regular"-->
+    <!--android:text="Исскуство"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="#707070"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintEnd_toStartOf="@+id/settings_films_media_category"-->
+    <!--app:layout_constraintStart_toEndOf="@+id/settings_community_category"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/settings_business_category" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/settings_films_media_category"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="32dp"-->
+    <!--android:layout_marginEnd="16dp"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:background="@drawable/category_btn_radius_background"-->
+    <!--android:fontFamily="@font/roboto_regular"-->
+    <!--android:text="Кино и Медия"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="#707070"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toEndOf="@+id/settings_art_category"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/settings_family_category" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/settings_sport_and_fitness_category"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="32dp"-->
+    <!--android:layout_marginEnd="16dp"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:background="@drawable/category_btn_radius_background"-->
+    <!--android:fontFamily="@font/roboto_regular"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:text="Спорт и Фитнес"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="#707070"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintEnd_toStartOf="@+id/settings_religion_category"-->
+    <!--app:layout_constraintStart_toEndOf="@+id/settings_training_category"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/settings_art_category" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/settings_science_and_tech_category"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="32dp"-->
+    <!--android:layout_marginEnd="16dp"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:background="@drawable/category_btn_radius_background"-->
+    <!--android:fontFamily="@font/roboto_regular"-->
+    <!--android:padding="4dp"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:text="Наука и Техника"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="#707070"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toEndOf="@+id/settings_entertainment_category"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/settings_humor_category" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/settings_travel_and_tours_category"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="32dp"-->
+    <!--android:layout_marginEnd="16dp"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:background="@drawable/category_btn_radius_background"-->
+    <!--android:fontFamily="@font/roboto_regular"-->
+    <!--android:text="Путешествия и Туры"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="#707070"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintEnd_toStartOf="@+id/settings_charity_category"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/settings_health_and_beauty_category" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/settings_family_category"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="32dp"-->
+    <!--android:layout_marginEnd="16dp"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:background="@drawable/category_btn_radius_background"-->
+    <!--android:fontFamily="@font/roboto_regular"-->
+    <!--android:text="Семья"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="#707070"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toEndOf="@+id/settings_business_category"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/settings_first_constraint_layout" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/settings_humor_category"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="32dp"-->
+    <!--android:layout_marginEnd="16dp"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:background="@drawable/category_btn_radius_background"-->
+    <!--android:fontFamily="@font/roboto_regular"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:text="Юмор"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="#707070"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintEnd_toStartOf="@+id/settings_education_category"-->
+    <!--app:layout_constraintStart_toEndOf="@+id/settings_fashion_and_style_category"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/settings_sport_and_fitness_category" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/settings_training_category"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="32dp"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:background="@drawable/category_btn_radius_background"-->
+    <!--android:fontFamily="@font/roboto_regular"-->
+    <!--android:text="Обучение"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="#707070"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/settings_community_category" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/settings_religion_category"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="32dp"-->
+    <!--android:layout_marginEnd="16dp"-->
+    <!--android:background="@drawable/category_btn_radius_background"-->
+    <!--android:fontFamily="@font/roboto_regular"-->
+    <!--android:text="Религия"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="#707070"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--tools:layout_editor_absoluteY="279dp" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/settings_fashion_and_style_category"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="32dp"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:background="@drawable/category_btn_radius_background"-->
+    <!--android:fontFamily="@font/roboto_regular"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:text="Мода и Стиль"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="#707070"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintEnd_toStartOf="@+id/settings_humor_category"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/settings_training_category" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/settings_entertainment_category"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="32dp"-->
+    <!--android:layout_marginEnd="8dp"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:background="@drawable/category_btn_radius_background"-->
+    <!--android:fontFamily="@font/roboto_regular"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:text="Развлечение"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="#707070"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintEnd_toStartOf="@+id/settings_science_and_tech_category"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/settings_humor_category" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/settings_education_category"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="32dp"-->
+    <!--android:layout_marginEnd="16dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:background="@drawable/category_btn_radius_background"-->
+    <!--android:fontFamily="@font/roboto_regular"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:text="Образование"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="#707070"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toEndOf="@+id/settings_humor_category"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/settings_religion_category" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/settings_charity_category"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="32dp"-->
+    <!--android:layout_marginEnd="16dp"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:background="@drawable/category_btn_radius_background"-->
+    <!--android:fontFamily="@font/roboto_regular"-->
+    <!--android:text="Благотворительность"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="#707070"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toEndOf="@+id/settings_travel_and_tours_category"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/settings_food_category" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/settings_government_category"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="32dp"-->
+    <!--android:layout_marginEnd="8dp"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:background="@drawable/category_btn_radius_background"-->
+    <!--android:fontFamily="@font/roboto_regular"-->
+    <!--android:text="Правительство"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="#707070"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintEnd_toStartOf="@+id/settings_active_rest_category"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/settings_entertainment_category" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/settings_health_and_beauty_category"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="32dp"-->
+    <!--android:layout_marginEnd="16dp"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:background="@drawable/category_btn_radius_background"-->
+    <!--android:fontFamily="@font/roboto_regular"-->
+    <!--android:text="Здоровье и Красота"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="#707070"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintEnd_toStartOf="@+id/settings_food_category"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/settings_government_category" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/settings_active_rest_category"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="32dp"-->
+    <!--android:layout_marginEnd="16dp"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:background="@drawable/category_btn_radius_background"-->
+    <!--android:fontFamily="@font/roboto_regular"-->
+    <!--android:text="Активный отдых"-->
+    <!--android:stateListAnimator="@null"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textAllCaps="false"-->
+    <!--android:textColor="#707070"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toEndOf="@+id/settings_government_category"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/settings_science_and_tech_category" />-->

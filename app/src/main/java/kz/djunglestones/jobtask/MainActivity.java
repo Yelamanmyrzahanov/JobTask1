@@ -1,5 +1,6 @@
 package kz.djunglestones.jobtask;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -27,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean spinnerSelected;
     private PageBlankAdapter pageAdapter1;
     private LinearLayout tabLayout0,tabLayout1,tabLayout2;
-    private TextView tabTextView0,tabTextView,tabTextView2;
+    private TextView tabTextView0,tabTextView,tabTextView2,main_location;
     private ArrayAdapter<String> arrayAdapter;
     private Typeface mediumFont,linkFont;
     private ImageView profileImageMainActivity;
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        tabLayout = findViewById(R.id.tab_layout);
+
         dialog = new Dialog(MainActivity.this);
         dialog.setContentView(R.layout.custom_pop_up);
         exitPopUp = dialog.findViewById(R.id.pop_up_exit);
@@ -71,6 +73,23 @@ public class MainActivity extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
+
+        mediumFont = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Medium.ttf");
+        linkFont = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Regular.ttf");
+
+        tabLayout = findViewById(R.id.tab_layout);
+        main_location = findViewById(R.id.main_location);
+        main_location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent locationIntent = new Intent(MainActivity.this,LocationActivity.class);
+                startActivityForResult(locationIntent,1);
+            }
+        });
+
+
+//        main_location.setText("HUina");
+
 
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -140,48 +159,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-//        TabLayout.Tab tab = tabLayout.getTabAt(2);
-//        tab.select();
-//        profileImageMainActivity = findViewById(R.id.profileImageMainActivity);
-        spinner = findViewById(R.id.spinner);
-
-        mediumFont = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Medium.ttf");
-        linkFont = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Regular.ttf");
-
-        arrayAdapter = new ArrayAdapter<String>(MainActivity.this,
-                R.layout.custom_spinner_item,
-                getResources().getStringArray(R.array.links)){
-
-            public View getView(int position, View convertView, ViewGroup parent)
-            {
-                View v = super.getView(position, convertView, parent);
-                ((TextView) v).setTypeface(mediumFont);//Typeface for normal view
-                ((TextView) v).setTextSize(TypedValue.COMPLEX_UNIT_SP,20);
-
-                return v;
-            }
-            public View getDropDownView(int position, View convertView, ViewGroup parent)
-            {
-                View v = super.getDropDownView(position, convertView, parent);
-                ((TextView) v).setTypeface(mediumFont);//Typeface for dropdown view
-                ((TextView) v).setTextSize(TypedValue.COMPLEX_UNIT_SP,20);
-                return v;
-            }
-
-        };
-
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-
-        spinner.setAdapter(arrayAdapter);
-
-
 
         setCustomFont();
-
-
-
-
 
         link1 =findViewById(R.id.link1);
         link2 =findViewById(R.id.link2);
@@ -189,8 +168,6 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager = findViewById(R.id.viewPager);
 //        viewPager.setCurrentItem(2);
-
-
 
         pageAdapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         pageAdapter.setSpinnerSelected(false);
@@ -202,85 +179,6 @@ public class MainActivity extends AppCompatActivity {
         changeLink1Color();
 
         materialSearchView = findViewById(R.id.search_view);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (spinner.getSelectedItem().toString().equals("")) {
-                    changeLink1Color();
-                    pageAdapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
-                    pageAdapter.setSpinnerSelected(true);
-                    pageAdapter.notifyChangeInPosition(1);
-                    pageAdapter.notifyDataSetChanged();
-                    viewPager.setAdapter(pageAdapter);
-                    viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-//                    Log.i("MENU 1", "onItemSelected: MENU 1");
-//                    Toast.makeText(MainActivity.this, spinner.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
-//                    pageAdapter1 = new PageBlankAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
-//                    viewPager.setAdapter(pageAdapter1);
-//                    viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-                } else if (spinner.getSelectedItem().toString().equals("Меню 2")) {
-                    changeLink1Color();
-                    pageAdapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
-                    pageAdapter.setSpinnerSelected(true);
-                    pageAdapter.notifyChangeInPosition(1);
-                    pageAdapter.notifyDataSetChanged();
-                    viewPager.setAdapter(pageAdapter);
-                    viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-//                    Toast.makeText(MainActivity.this, spinner.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
-//                    pageAdapter1 = new PageBlankAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
-//                    viewPager.setCurrentItem(0);
-//                    viewPager.setAdapter(pageAdapter1);
-//                    viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-                } else if (spinner.getSelectedItem().toString().equals("Меню 3")) {
-                    changeLink1Color();
-                    pageAdapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
-                    pageAdapter.setSpinnerSelected(true);
-                    pageAdapter.notifyChangeInPosition(1);
-                    pageAdapter.notifyDataSetChanged();
-                    viewPager.setAdapter(pageAdapter);
-                    viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-//                    Toast.makeText(MainActivity.this, spinner.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
-//                    pageAdapter1 = new PageBlankAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
-//                    viewPager.setCurrentItem(0);
-//                    viewPager.setAdapter(pageAdapter1);
-//                    viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-//                    spinnerSelected = true;
-                }else {
-                    changeLink1Color();
-                    pageAdapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
-                    pageAdapter.setSpinnerSelected(false);
-                    pageAdapter.notifyChangeInPosition(1);
-                    pageAdapter.notifyDataSetChanged();
-                    viewPager.setCurrentItem(0);
-                    viewPager.setAdapter(pageAdapter);
-                    viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-                    Log.i("MENU ", "onItemSelected: MENU ");
-
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-//                replaceFragmentBlank(link1Fragment);
-//                spinnerSelected = false;
-            }
-        });
-
-
-
-
-//        profileImageMainActivity.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent profileIntent = new Intent(MainActivity.this,ProfileActivity.class);
-//                startActivity(profileIntent);
-//            }
-//        });
-
-
-
-
-
     }
 
     private void selectTab(int pageIndex) {
@@ -305,7 +203,8 @@ public class MainActivity extends AppCompatActivity {
                 if (tabViewChild instanceof TextView) {
                     //Put your font in assests folder
                     //assign name of the font here (Must be case sensitive)
-                    ((TextView) tabViewChild).setTypeface(Typeface.createFromAsset(getAssets(), "fonts/Roboto-Regular.ttf"));
+                    ((TextView) tabViewChild).setTypeface(mediumFont, Typeface.BOLD);
+                    ((TextView) tabViewChild).setTextSize(TypedValue.COMPLEX_UNIT_SP,12);
                 }
             }
         }
@@ -359,6 +258,15 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        MenuItem settingsMenu = menu.findItem(R.id.settingsSubMenu);
+        settingsMenu.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent settingsIntent = new Intent(MainActivity.this,SettingsMainActivity.class);
+                startActivity(settingsIntent);
+                return true;
+            }
+        });
 
 //        menuSearch.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
 //            @Override
@@ -384,7 +292,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (materialSearchView.isSearchOpen()) {
-            spinner.setVisibility(View.VISIBLE);
+//            spinner.setVisibility(View.VISIBLE);
             materialSearchView.closeSearch();
         } else {
             super.onBackPressed();
@@ -398,4 +306,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        try {
+            super.onActivityResult(requestCode, resultCode, data);
+            if (requestCode == 1 && resultCode == Activity.RESULT_OK){
+                String city_name = data.getStringExtra("city_name");
+                main_location.setText(city_name);
+//                Toast.makeText(MainActivity.this, "Huina",
+//                        Toast.LENGTH_SHORT).show();
+            }
+
+        }catch (Exception ex){
+            Toast.makeText(MainActivity.this, ex.toString(),
+                    Toast.LENGTH_SHORT).show();
+        }
+
+    }
 }

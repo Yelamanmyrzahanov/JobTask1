@@ -9,6 +9,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -16,7 +17,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -35,10 +38,17 @@ dependencies {
     compile 'com.google.firebase:firebase-core:16.0.0'
     implementation 'com.google.firebase:firebase-auth:16.0.2'
     implementation 'com.google.android.gms:play-services-games:15.0.1'
+
     compile('me.fahmisdk6.avatarview:avatarview:1.0@aar') {
         transitive = true
     }
+
     compile 'id.zelory:compressor:2.1.0'
+    compile 'com.theartofdev.edmodo:android-image-cropper:2.6.+'
+    implementation 'com.google.android.gms:play-services-maps:15.0.1'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.github.adroitandroid:ChipCloud:2.2.1'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

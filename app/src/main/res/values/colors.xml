@@ -12,6 +12,8 @@
     <color name="sec_frag_name_col">#38000000</color>
     <color name="sec_frag_phone_code_col">#87000000</color>
     <color name="sec_frag_main_num_col">#38000000</color>
-    <color name="card_tickets_date_color">#54000000</color>
+    <color name="card_tickets_date_color">#4d4d4d</color>
     <color name="crdview_ticket_event_color">#87000000</color>
+    <color name="black_textviews">#000000</color>
+    <color name="grey_light">#72bbbbbb</color>
 </resources>

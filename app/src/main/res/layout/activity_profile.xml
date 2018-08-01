@@ -22,6 +22,7 @@
 
             <me.fahmisdk6.avatarview.AvatarView
                 android:id="@+id/profile_avatar"
+                android:clickable="true"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_gravity="center"
@@ -59,7 +60,6 @@
                 android:background="@color/tab2"
                 app:tabIndicatorHeight="4dp"
                 app:tabSelectedTextColor="#5f6cba"
-                app:tabTextAppearance="@style/CustomTabText"
                 app:tabTextColor="#675f6cba">
 
                 <android.support.design.widget.TabItem

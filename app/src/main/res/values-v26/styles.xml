@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomTabText" parent="Base.Widget.Design.TabLayout">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:font">@font/roboto_medium</item>
+    </style>
+</resources>

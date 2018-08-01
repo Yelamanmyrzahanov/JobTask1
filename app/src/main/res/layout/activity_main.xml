@@ -23,29 +23,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:minHeight="?attr/actionBarSize"
-                app:theme="@style/ThemeOverlay.AppCompat.Light"
+                android:theme="?attr/actionBarTheme"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 app:layout_scrollFlags="scroll|snap">
-
-                <Spinner
-                    android:id="@+id/spinner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginLeft="32dp"
-                    android:background="@null"
-                    android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                    android:popupBackground="@android:color/white"
-                    android:spinnerMode="dropdown">
-                </Spinner>
-
 
             </android.support.v7.widget.Toolbar>
 
 
             <com.miguelcatalan.materialsearchview.MaterialSearchView
+                android:elevation="4dp"
                 android:id="@+id/search_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/main_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Алматы"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/roboto_medium"
+                    android:layout_margin="16dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_gravity="left|center"
+                    android:textSize="18sp" />
+            </com.miguelcatalan.materialsearchview.MaterialSearchView>
         </FrameLayout>
 
 
@@ -55,9 +58,9 @@
             android:id="@+id/tab_layout"
             android:background="@color/tab2"
             app:tabSelectedTextColor="#5f6cba"
-            app:tabTextAppearance="@style/CustomTabText"
             app:tabTextColor="#675f6cba"
             app:tabIndicatorHeight="4dp"
+            app:tabTextAppearance="@style/CustomTabText"
             android:layout_width="match_parent"
             android:layout_height="44dp"
             >

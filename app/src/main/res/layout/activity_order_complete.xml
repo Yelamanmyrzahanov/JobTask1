@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".OrderCompleteActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/order_complete_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="?attr/actionBarTheme"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <TextView
+            android:id="@+id/order_complete_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:layout_margin="20dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="DONE"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/order_complete_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_complete_toolbar">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/order_complete_cardview_first_constraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/order_completed_top_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Заказ оформлен"
+                android:textAllCaps="true"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/order_complete_event_name"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_marginEnd="48dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="center"
+                android:text="Seminar on studying english language"
+                android:textAlignment="center"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/order_completed_top_tv" />
+
+            <View
+                android:id="@+id/view9"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="54dp"
+                android:alpha="0.12"
+                android:background="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/order_complete_event_name" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/order_complete_calendar_constraint"
+                android:layout_width="0dp"
+                android:layout_height="41dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view9">
+
+                <ImageButton
+                    android:id="@+id/order_complete_calendar_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_date_24dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/order_complete_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="SAT, 20 FEB 2018, 19:00"
+                    android:textColor="#000000"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/order_complete_calendar_image"
+                    app:layout_constraintStart_toEndOf="@+id/order_complete_calendar_image"
+                    app:layout_constraintTop_toTopOf="@+id/order_complete_calendar_image" />
+
+                <TextView
+                    android:id="@+id/order_complete_add_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="+Добавить"
+                    android:textColor="@color/colorPrimary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/view10"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="54dp"
+                    android:alpha="0.12"
+                    android:background="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/order_complete_cardview_ticket_constraint"
+                android:layout_width="match_parent"
+                android:layout_height="41dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/order_complete_calendar_constraint">
+
+                <ImageButton
+                    android:id="@+id/order_complete_card_ticket_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ticket_icon_24dp" />
+
+                <TextView
+                    android:id="@+id/order_complete_card_ticket_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="1 ticket"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_textviews"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/order_complete_card_ticket_image"
+                    app:layout_constraintStart_toEndOf="@+id/order_complete_card_ticket_image"
+                    app:layout_constraintTop_toTopOf="@+id/order_complete_card_ticket_image" />
+
+                <TextView
+                    android:id="@+id/order_complete_tikcet_view_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Посмотреть"
+                    android:textColor="@color/colorPrimary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/view11"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="54dp"
+                    android:alpha="0.12"
+                    android:background="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/order_complete_invite_constraint"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/order_complete_cardview_ticket_constraint">
+
+
+                <TextView
+                    android:id="@+id/order_complete_card_invite_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Invite"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/more_options_circle"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_more_horiz_black_24dp"
+                    app:civ_border_color="@color/grey_light"
+                    app:civ_border_width="1dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/email_circle"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="8dp"
+                    android:cropToPadding="true"
+                    android:foregroundGravity="center"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_email_white_24dp"
+                    app:civ_circle_background_color="@color/grey_light"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/more_options_circle"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/whatsapp_circle"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/whatsapp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/email_circle"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/vkontakte_circle"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="8dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/vk_circle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/whatsapp_circle"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/sms_circle"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/circle_background"
+                    android:gravity="center"
+                    android:text="SMS"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/vkontakte_circle"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
+
+        </android.support.constraint.ConstraintLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/order_complete_popular_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/roboto_light"
+        android:text="Популярно в образовании"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#808080"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_complete_cardview" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/order_complete_recyclerview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_complete_popular_textview" />
+</android.support.constraint.ConstraintLayout>

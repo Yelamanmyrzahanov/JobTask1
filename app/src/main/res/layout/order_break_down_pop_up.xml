@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/pop_up_cardview"
+        android:layout_width="310dp"
+        android:layout_height="390dp"
+        app:cardCornerRadius="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/pop_up_ticket_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Early Bird Билет"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/pop_up_ticket_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_light"
+                android:text="500 тг"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pop_up_ticket_name" />
+
+            <TextView
+                android:id="@+id/pop_up_ticket_alert"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Данный вид билета - только для одного человека на одно посещение"
+                android:textAlignment="textStart"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pop_up_ticket_price" />
+
+            <ImageButton
+                android:id="@+id/pop_up_minus_ticket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:layout_marginStart="32dp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/pop_up_buy_ticket"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/ic_minus_24dp" />
+
+            <ImageButton
+                android:id="@+id/pop_up_add_ticket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:layout_marginEnd="32dp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/pop_up_buy_ticket"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_add_circle_24dp" />
+
+            <TextView
+                android:id="@+id/pop_up_amount_ticket"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_marginBottom="32dp"
+                android:text="2"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toTopOf="@+id/pop_up_buy_ticket"
+                app:layout_constraintEnd_toStartOf="@+id/pop_up_add_ticket"
+                app:layout_constraintStart_toEndOf="@+id/pop_up_minus_ticket" />
+
+            <Button
+                android:id="@+id/pop_up_buy_ticket"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:background="@color/colorPrimary"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Выбрать"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+</android.support.constraint.ConstraintLayout>
