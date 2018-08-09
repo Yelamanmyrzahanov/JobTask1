@@ -2,6 +2,8 @@ package kz.djunglestones.jobtask;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -60,7 +62,6 @@ public class OrderBreakDownActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.order_break_down_pop_up);
         pop_up_ticket_name = dialog.findViewById(R.id.pop_up_buy_ticket);
         pop_up_ticket_price = dialog.findViewById(R.id.pop_up_ticket_price);
-        pop_up_ticket_price.setText(order_break_down_ticket_price.getText().toString());
         pop_up_ticket_price_constant= order_break_down_ticket_price.getText().toString();
         pop_up_amount_ticket = dialog.findViewById(R.id.pop_up_amount_ticket);
         pop_up_amount_ticket.setText(String.valueOf(pop_up_ticket_amount_counter));
@@ -84,7 +85,7 @@ public class OrderBreakDownActivity extends AppCompatActivity {
                 pop_up_ticket_amount_counter += 1;
                 pop_up_amount_ticket.setText(String.valueOf(pop_up_ticket_amount_counter));
                 int price = Integer.parseInt(pop_up_ticket_price_constant.replaceAll("[\\D]", ""))*pop_up_ticket_amount_counter;
-                pop_up_ticket_price.setText(String.valueOf(price)+" тг");
+                pop_up_ticket_price.setText(String.valueOf(price)+" ₸");
             }
         });
 
@@ -98,7 +99,7 @@ public class OrderBreakDownActivity extends AppCompatActivity {
                 }
                 pop_up_amount_ticket.setText(String.valueOf(pop_up_ticket_amount_counter));
                 int price = Integer.parseInt(pop_up_ticket_price_constant.replaceAll("[\\D]", ""))*pop_up_ticket_amount_counter;
-                pop_up_ticket_price.setText(String.valueOf(price)+" тг");
+                pop_up_ticket_price.setText(String.valueOf(price)+" ₸");
 
 
 
@@ -109,6 +110,7 @@ public class OrderBreakDownActivity extends AppCompatActivity {
         first_constraint_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
         });

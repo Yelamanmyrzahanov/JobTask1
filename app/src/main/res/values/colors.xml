@@ -15,5 +15,10 @@
     <color name="card_tickets_date_color">#4d4d4d</color>
     <color name="crdview_ticket_event_color">#87000000</color>
     <color name="black_textviews">#000000</color>
+    <color name="icons">#bfc4e3</color>
+    <color name="dark_black">#505050</color>
+    <color name="light_black_first">#808080</color>
+    <color name="light_black_second">#999999</color>
     <color name="grey_light">#72bbbbbb</color>
+    <color name="activity_main_settings_blue_tv">#008bfd</color>
 </resources>

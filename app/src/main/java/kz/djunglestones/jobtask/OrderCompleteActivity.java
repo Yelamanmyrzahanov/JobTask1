@@ -10,10 +10,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class OrderCompleteActivity extends AppCompatActivity {
     private Toolbar order_complete_toolbar;
@@ -24,6 +28,10 @@ public class OrderCompleteActivity extends AppCompatActivity {
     private ConstraintLayout order_complete_cardview_ticket_constraint;
     private TextView order_complete_done;
     private TextView order_complete_card_ticket_amount,order_complete_date,order_complete_event_name;
+    private CircleImageView whatsapp_circle,vkontakte_circle,email_circle;
+    private ImageView more_options_circle;
+    private TextView sms_circle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +61,7 @@ public class OrderCompleteActivity extends AppCompatActivity {
         }
 
 
-        order_complete_cardview_ticket_constraint = findViewById(R.id.order_complete_cardview_ticket_constraint);
+        order_complete_cardview_ticket_constraint = findViewById(R.id.order_complete_tickets_clickable_constraint);
         order_complete_cardview_ticket_constraint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,6 +79,80 @@ public class OrderCompleteActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+//        whatsapp_circle = findViewById(R.id.whatsapp_circle);
+//        whatsapp_circle.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent whatsappIntent = new Intent(Intent.ACTION_SEND);
+//                whatsappIntent.setType("text/plain");
+//                whatsappIntent.setPackage("com.whatsapp");
+//                whatsappIntent.putExtra(Intent.EXTRA_TEXT,"Whatsapp Message Test");
+//                try {
+//                    startActivity(whatsappIntent);
+//                }catch (android.content.ActivityNotFoundException ex){
+//                    Toast.makeText(OrderCompleteActivity.this,"Whatsapp have not been installed.",Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+//        vkontakte_circle = findViewById(R.id.vkontakte_circle);
+//        vkontakte_circle.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent vkontakteIntent = new Intent(Intent.ACTION_SEND);
+//                vkontakteIntent.setType("text/plain");
+//                vkontakteIntent.setPackage("com.vkontakte");
+//                vkontakteIntent.putExtra(Intent.EXTRA_TEXT,"Vk Message Test");
+//                try{
+//                    startActivity(vkontakteIntent);
+//                }catch (android.content.ActivityNotFoundException ex){
+//                    Toast.makeText(OrderCompleteActivity.this,"VK have not been installed.",Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+
+//        sms_circle = findViewById(R.id.sms_circle);
+//        sms_circle.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String smsBody="Sms Body";
+//                Intent sendIntent = new Intent(Intent.ACTION_SEND);
+//                sendIntent.setType("text/plain");
+//                sendIntent.putExtra("sms_body", smsBody);
+//                startActivity(Intent.createChooser(sendIntent,"Поделиться"));
+//            }
+//        });
+
+
+
+//        email_circle = findViewById(R.id.email_circle);
+//        email_circle.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+//                String shareBody = "Body text (Testing share button)";
+//                String shareSub = "Subject text (Testing share button)";
+//                shareIntent.putExtra(Intent.EXTRA_SUBJECT,shareBody);
+//                shareIntent.putExtra(Intent.EXTRA_TEXT,shareSub);
+//                shareIntent.setType("message/rfc822");
+//                startActivity(Intent.createChooser(shareIntent,"Поделиться"));
+//            }
+//        });
+
+        more_options_circle = findViewById(R.id.more_options_circle);
+        more_options_circle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                String shareBody = "Body text (Testing share button)";
+                String shareSub = "Subject text (Testing share button)";
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT,shareBody);
+                shareIntent.putExtra(Intent.EXTRA_TEXT,shareSub);
+                startActivity(Intent.createChooser(shareIntent,"Поделиться"));
+            }
+        });
+
 
         addCard();
 

@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tabTextView0,tabTextView,tabTextView2,main_location;
     private ArrayAdapter<String> arrayAdapter;
     private Typeface mediumFont,linkFont;
-    private ImageView profileImageMainActivity;
+    private ImageView profileImageMainActivity,drop_down_arrow;
     private Dialog dialog;
     private Button closePopUp,filterButton;
     private TextView exitPopUp;
@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         linkFont = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Regular.ttf");
 
         tabLayout = findViewById(R.id.tab_layout);
+        drop_down_arrow = findViewById(R.id.drop_down_arrow);
         main_location = findViewById(R.id.main_location);
         main_location.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,9 +87,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(locationIntent,1);
             }
         });
+        drop_down_arrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent locationIntent = new Intent(MainActivity.this,LocationActivity.class);
+                startActivityForResult(locationIntent,1);
+            }
+        });
 
 
-//        main_location.setText("HUina");
 
 
 
@@ -178,7 +185,6 @@ public class MainActivity extends AppCompatActivity {
 //        selectTab(2);
         changeLink1Color();
 
-        materialSearchView = findViewById(R.id.search_view);
     }
 
     private void selectTab(int pageIndex) {
@@ -238,12 +244,13 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu,menu);
 
         MenuItem menuSearch = menu.findItem(R.id.search_menu);
-        materialSearchView.setMenuItem(menuSearch);
         MenuItem menuFilter = menu.findItem(R.id.filter_menu);
         menuFilter.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                dialog.show();
+//                dialog.show();
+                Intent filterIntent = new Intent(MainActivity.this,FilterActivity.class);
+                startActivity(filterIntent);
                 return true;
             }
         });
@@ -268,13 +275,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        menuSearch.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-//            @Override
-//            public boolean onMenuItemClick(MenuItem item) {
-//                spinnerHide();
-//                return true;
-//            }
-//        });
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -288,23 +288,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-//
-    @Override
-    public void onBackPressed() {
-        if (materialSearchView.isSearchOpen()) {
-//            spinner.setVisibility(View.VISIBLE);
-            materialSearchView.closeSearch();
-        } else {
-            super.onBackPressed();
-        }
-    }
-//
-    public void spinnerHide(){
 
-//        spinner.setVisibility(View.GONE);
-        materialSearchView.setVisibility(View.VISIBLE);
-
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -315,6 +299,9 @@ public class MainActivity extends AppCompatActivity {
                 main_location.setText(city_name);
 //                Toast.makeText(MainActivity.this, "Huina",
 //                        Toast.LENGTH_SHORT).show();
+            }else if (requestCode==1 && resultCode == 2){
+                String city_name_by_gps = data.getStringExtra("city_name_by_gps");
+                main_location.setText(city_name_by_gps);
             }
 
         }catch (Exception ex){

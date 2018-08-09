@@ -30,25 +30,41 @@
 
             </android.support.v7.widget.Toolbar>
 
-
-            <com.miguelcatalan.materialsearchview.MaterialSearchView
-                android:elevation="4dp"
-                android:id="@+id/search_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/main_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="left|center"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/roboto_medium"
                     android:text="Алматы"
                     android:textColor="@color/white"
-                    android:fontFamily="@font/roboto_medium"
-                    android:layout_margin="16dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_gravity="left|center"
-                    android:textSize="18sp" />
-            </com.miguelcatalan.materialsearchview.MaterialSearchView>
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/drop_down_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_arrow_drop_down_white_24dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/main_location"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
+
+
         </FrameLayout>
 
 
