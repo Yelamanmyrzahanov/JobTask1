@@ -45,6 +45,19 @@
         <item name="android:fontFamily">@font/roboto_medium</item>
     </style>
 
+    <style name="SelectableItemTheme">
+        <item name="colorControlHighlight">#dfe2f1</item>
+    </style>
+
+    <style name="SelectableItemBackground">
+        <item name="android:theme">@style/SelectableItemTheme</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="MyAppBarLayoutTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorControlHighlight">#dfe2f1</item>
+    </style>
+
     <!--<style name="EditTextAppearance" parent="@android:style/TextAppearance.Widget.EditText">-->
         <!--<item name="android:textSize">16sp</item>-->
         <!--<item name="android:textColor">@android:color/black</item> &lt;!&ndash; APPLIED if appearance is part of the theme &ndash;&gt;-->

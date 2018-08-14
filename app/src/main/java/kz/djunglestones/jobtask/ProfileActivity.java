@@ -41,6 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
     private LinearLayout tabLayout0,tabLayout1,tabLayout2;
     private Typeface mediumFont,regularFont;
     private Uri mainImageUri;
+    private TextView profile_username;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -51,8 +52,12 @@ public class ProfileActivity extends AppCompatActivity {
         setSupportActionBar(profileToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        profile_username = findViewById(R.id.profile_username);
+
+
         avatarView5 = findViewById(R.id.profile_avatar);
-        avatarView5.bind("Нариман Дуйсеков", "https://avatars2.githubusercontent.com");
+        avatarView5.bind(profile_username.getText().toString(), "https://avatars2.githubusercontent.com");
 
         avatarView5.setOnClickListener(new View.OnClickListener() {
             @Override

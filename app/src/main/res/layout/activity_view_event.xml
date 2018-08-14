@@ -43,6 +43,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    android:theme="@style/MyAppBarLayoutTheme"
                     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
@@ -68,6 +69,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="14dp"
                 android:fontFamily="@font/roboto_medium"
+                android:maxLines="10"
                 android:text="Семинар: Как за 2 месяца выучить английский язык"
                 android:textAlignment="center"
                 android:textColor="@color/black_textviews"
@@ -118,16 +120,18 @@
 
             <TextView
                 android:id="@+id/event_street_location"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="18dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/roboto_regular"
                 android:text="ул.Фурманова, 150"
                 android:textColor="@color/black_textviews"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/event_city_tv" />
 
@@ -171,7 +175,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:background="#303030"
+                android:alpha="0.87"
+                android:background="#000000"
                 android:elevation="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -188,7 +193,7 @@
                     android:text="Бесплатно"
                     android:textAllCaps="true"
                     android:textColor="#ffffff"
-                    app:layout_constraintBottom_toTopOf="@+id/event_buy_tickets_btn"
+                    app:layout_constraintBottom_toTopOf="@+id/event_info_buy_tickets_btn"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/bottom_constraint_layout" />
@@ -252,11 +257,15 @@
 
                     <TextView
                         android:id="@+id/cardView_company_name"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="14dp"
-                        android:text="MSLM company"
                         android:fontFamily="@font/roboto_medium"
+                        android:maxLines="3"
+                        android:text="MSLM company"
+                        android:textAlignment="center"
                         android:textColor="#404040"
                         android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"

@@ -10,6 +10,7 @@ import android.location.Location;
 import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -36,6 +37,7 @@ public class LocationActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private LocationRecyclerViewAdapter locationRecyclerViewAdapter;
     private List<City> cityList;
+    private CollapsingToolbarLayout collapsing_toolbar_layout_location;
 
     private static final int REQUEST_CODE = 1000;
     private String latitude;
@@ -67,7 +69,9 @@ public class LocationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_location);
         toolbar = findViewById(R.id.location_toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Выберите ваше местоположение");
+//        collapsing_toolbar_layout_location = findViewById(R.id.collapsing_toolbar_layout_location);
+//        collapsing_toolbar_layout_location.setTitle("Выберите город");
+        getSupportActionBar().setTitle("Выберите город");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 

@@ -2,6 +2,7 @@ package kz.djunglestones.jobtask;
 
 import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -32,9 +33,10 @@ public class SettingsMainActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_main);
         toolbar = findViewById(R.id.settings_main_toolbar);
+        CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_layout_settings_main);
+        collapsingToolbarLayout.setTitleEnabled(false);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Настройки");
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         for (int i:textview_IDS){

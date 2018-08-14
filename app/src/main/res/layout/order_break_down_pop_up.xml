@@ -58,6 +58,7 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text="Данный вид билета - только для одного человека на одно посещение"
                 android:textAlignment="center"
+                android:textColor="#999999"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -93,8 +94,9 @@
 
             <TextView
                 android:id="@+id/pop_up_amount_ticket"
-                android:layout_width="46dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_light"
                 android:text="0"
                 android:textAlignment="center"
                 android:textColor="#505050"

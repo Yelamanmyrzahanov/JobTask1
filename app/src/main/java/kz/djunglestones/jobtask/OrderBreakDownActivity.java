@@ -72,9 +72,9 @@ public class OrderBreakDownActivity extends AppCompatActivity {
         pop_up_buy_ticket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                order_break_down_total_price.setText(pop_up_ticket_price.getText().toString());
+                order_break_down_total_price.setText(pop_up_ticket_price.getText().toString().replaceAll("[\\D]", "")+" ₸");
                 order_break_tickets_amount_tv.setText(String.valueOf(pop_up_ticket_amount_counter));
-                order_break_down_quantity_and_total.setText("Количество: "+String.valueOf(pop_up_ticket_amount_counter)+"\n"+"Итого: "+pop_up_ticket_price.getText().toString());
+                order_break_down_quantity_and_total.setText("Количество: "+String.valueOf(pop_up_ticket_amount_counter)+"\n"+pop_up_ticket_price.getText().toString());
                 dialog.dismiss();
             }
         });
@@ -85,7 +85,7 @@ public class OrderBreakDownActivity extends AppCompatActivity {
                 pop_up_ticket_amount_counter += 1;
                 pop_up_amount_ticket.setText(String.valueOf(pop_up_ticket_amount_counter));
                 int price = Integer.parseInt(pop_up_ticket_price_constant.replaceAll("[\\D]", ""))*pop_up_ticket_amount_counter;
-                pop_up_ticket_price.setText(String.valueOf(price)+" ₸");
+                pop_up_ticket_price.setText("Итого: "+String.valueOf(price)+" ₸");
             }
         });
 
@@ -99,7 +99,7 @@ public class OrderBreakDownActivity extends AppCompatActivity {
                 }
                 pop_up_amount_ticket.setText(String.valueOf(pop_up_ticket_amount_counter));
                 int price = Integer.parseInt(pop_up_ticket_price_constant.replaceAll("[\\D]", ""))*pop_up_ticket_amount_counter;
-                pop_up_ticket_price.setText(String.valueOf(price)+" ₸");
+                pop_up_ticket_price.setText("Итого: "+String.valueOf(price)+" ₸");
 
 
 

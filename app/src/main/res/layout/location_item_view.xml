@@ -29,7 +29,7 @@
                 android:layout_marginTop="12dp"
                 android:fontFamily="@font/roboto_regular"
                 android:text="Washington, DC"
-                android:textColor="@color/black_textviews"
+                android:textColor="@color/dark_black"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

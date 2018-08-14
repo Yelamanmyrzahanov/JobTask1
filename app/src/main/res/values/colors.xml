@@ -21,4 +21,5 @@
     <color name="light_black_second">#999999</color>
     <color name="grey_light">#72bbbbbb</color>
     <color name="activity_main_settings_blue_tv">#008bfd</color>
+    <color name="tab_background_selected">#bfc4e3</color>
 </resources>

@@ -1,113 +1,510 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FilterActivity"
-    android:nestedScrollingEnabled="true"
     android:fillViewport="true"
     android:background="@color/background">
 
 
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/filter_toolbar"
-            android:layout_width="0dp"
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBar_filter"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-        </android.support.v7.widget.Toolbar>
-
-        <TextView
-            android:id="@+id/apply_filter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:gravity="end"
-            android:text="Применить"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/filter_toolbar"
-            app:layout_constraintEnd_toEndOf="@+id/filter_toolbar"
-            android:fontFamily="@font/roboto_medium"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/only_free_cardview"
-            android:layout_width="0dp"
-            android:layout_height="56dp"
-            android:layout_marginEnd="8dp"
-            android:nestedScrollingEnabled="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sort_by_expanded_menu">
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/only_free_cardview_constraint"
+            <android.support.design.widget.CollapsingToolbarLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="false"
+                app:layout_scrollFlags="snap">
+                
+
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/filter_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorPrimary"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="@style/MyAppBarLayoutTheme"
+                    app:layout_collapseMode="pin"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"></android.support.v7.widget.Toolbar>
 
                 <TextView
-                    android:id="@+id/only_free_cardview_tv"
+                    android:id="@+id/apply_filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="Только бесплатные мероприятия"
-                    android:textColor="@color/black_textviews"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <CheckBox
-                    android:id="@+id/free_checkBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
                     android:layout_marginEnd="16dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </android.support.constraint.ConstraintLayout>
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Применить"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
 
-        </android.support.v7.widget.CardView>
+            </android.support.design.widget.CollapsingToolbarLayout>
 
-        <!--<ExpandableListView-->
-            <!--android:id="@+id/sort_by_expanded_menu"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="0dp"-->
-            <!--android:layout_marginEnd="8dp"-->
-            <!--android:layout_marginStart="8dp"-->
-            <!--android:layout_marginTop="8dp"-->
-            <!--android:layoutDirection="rtl"-->
-            <!--android:background="@color/white"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/filter_toolbar"></ExpandableListView>-->
+        </android.support.design.widget.AppBarLayout>
 
-        <!--<ExpandableListView-->
-            <!--android:id="@+id/sort_by_date_expanded_menu"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="0dp"-->
-            <!--android:layout_marginEnd="8dp"-->
-            <!--android:layout_marginStart="8dp"-->
-            <!--android:layout_marginTop="8dp"-->
-            <!--android:background="@color/white"-->
-            <!--android:layoutDirection="rtl"-->
-            <!--app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/only_free_cardview"></ExpandableListView>-->
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?android:attr/actionBarSize">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/only_free_cardview"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="4dp"
+                android:nestedScrollingEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sort_by_cardview">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/only_free_cardview_constraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/only_free_cardview_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Только бесплатные мероприятия"
+                        android:textColor="@color/black_textviews"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <CheckBox
+                        android:id="@+id/free_checkBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/sort_by_cardview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/sort_by_constraint_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:elevation="2dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/sort_by_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:text="Сортировать по"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black_textviews"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/view13"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:alpha="0.12"
+                            android:background="#000000"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/sort_by_constraint_layout_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:elevation="2dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/sort_by_constraint_layout">
+
+                        <RadioGroup
+                            android:id="@+id/radio_group_sort_by"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginTop="16dp"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RadioButton
+                                android:id="@+id/relevance_radio_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl" />
+
+                            <RadioButton
+                                android:id="@+id/date_radio_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_marginTop="16dp"
+                                android:layoutDirection="rtl" />
+
+                        </RadioGroup>
+
+                        <TextView
+                            android:id="@+id/relevance_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="Релевантности"
+                            android:textColor="@color/black_textviews"
+                            android:textSize="14sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/radio_group_sort_by" />
+
+                        <TextView
+                            android:id="@+id/date_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="Дате"
+                            android:textColor="@color/black_textviews"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/radio_group_sort_by"
+                            app:layout_constraintStart_toStartOf="parent" />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.constraint.ConstraintLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/sort_by_date_cardview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/only_free_cardview">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/sort_by_date_constraint_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:elevation="2dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/sort_by_date_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:text="Дата"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black_textviews"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/view14"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:alpha="0.12"
+                            android:background="#000000"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/sort_by_date_constraint_layout_content"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:background="@color/white"
+                        android:elevation="2dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/sort_by_date_constraint_layout"
+                        app:layout_constraintVertical_bias="0.6">
+
+
+                        <RadioGroup
+                            android:id="@+id/radio_group_sort_by_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginTop="16dp"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RadioButton
+                                android:id="@+id/all_dates_radio_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl" />
+
+                            <RadioButton
+                                android:id="@+id/today_date_radio_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_marginTop="16dp"
+                                android:layoutDirection="rtl" />
+
+                            <RadioButton
+                                android:id="@+id/tommorow_date_radio_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_marginTop="16dp"
+                                android:layoutDirection="rtl" />
+
+                            <RadioButton
+                                android:id="@+id/weekends_date_radio_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_marginTop="16dp"
+                                android:layoutDirection="rtl" />
+
+                            <RadioButton
+                                android:id="@+id/choose_date_radio_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_marginTop="16dp"
+                                android:layoutDirection="rtl" />
+
+                        </RadioGroup>
+
+                        <TextView
+                            android:id="@+id/all_dates_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="Все даты"
+                            android:textColor="@color/black_textviews"
+                            android:textSize="14sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/radio_group_sort_by_date" />
+
+                        <TextView
+                            android:id="@+id/choose_date_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="Выберите дату"
+                            android:textColor="@color/black_textviews"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/radio_group_sort_by_date"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+
+                        <TextView
+                            android:id="@+id/today_dates_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="Сегодня"
+                            android:textColor="@color/black_textviews"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toTopOf="@+id/tomorrow_dates_tv"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/all_dates_tv" />
+
+                        <TextView
+                            android:id="@+id/tomorrow_dates_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="Завтра"
+                            android:textColor="@color/black_textviews"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/radio_group_sort_by_date"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/radio_group_sort_by_date" />
+
+                        <TextView
+                            android:id="@+id/weekends_dates_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="Выходные"
+                            android:textColor="@color/black_textviews"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toTopOf="@+id/choose_date_tv"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tomorrow_dates_tv" />
+
+                        <Button
+                            android:id="@+id/start_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="24dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/calendar_btn_background"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp"
+                            android:stateListAnimator="@null"
+                            android:text="17 февраля"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/textView9"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/choose_date_tv" />
+
+                        <TextView
+                            android:id="@+id/textView9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="по"
+                            android:textAlignment="center"
+                            android:textColor="@color/black_textviews"
+                            app:layout_constraintBottom_toBottomOf="@+id/start_date"
+                            app:layout_constraintEnd_toStartOf="@+id/end_date"
+                            app:layout_constraintHorizontal_chainStyle="spread_inside"
+                            app:layout_constraintStart_toEndOf="@+id/start_date"
+                            app:layout_constraintTop_toTopOf="@+id/start_date" />
+
+                        <Button
+                            android:id="@+id/end_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="24dp"
+                            android:layout_marginEnd="40dp"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/calendar_btn_background"
+                            android:fontFamily="@font/roboto_regular"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp"
+                            android:stateListAnimator="@null"
+                            android:text="17 февраля"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/textView9"
+                            app:layout_constraintTop_toTopOf="@id/start_date" />
+
+                        <TextView
+                            android:id="@+id/textView10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="с"
+                            android:textColor="@color/black_textviews"
+                            app:layout_constraintBottom_toBottomOf="@+id/start_date"
+                            app:layout_constraintEnd_toStartOf="@+id/start_date"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/start_date" />
+
+
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v4.widget.NestedScrollView>
 
 
 
@@ -115,4 +512,37 @@
 
 
 
-</android.support.constraint.ConstraintLayout>
+
+
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>
+
+    <!--<ExpandableListView-->
+    <!--android:id="@+id/sort_by_expanded_menu"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:layout_marginEnd="8dp"-->
+    <!--android:layout_marginStart="8dp"-->
+    <!--android:layout_marginTop="8dp"-->
+    <!--android:layoutDirection="rtl"-->
+    <!--android:background="@color/white"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/filter_toolbar"></ExpandableListView>-->
+
+    <!--<ExpandableListView-->
+    <!--android:id="@+id/sort_by_date_expanded_menu"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:layout_marginEnd="8dp"-->
+    <!--android:layout_marginStart="8dp"-->
+    <!--android:layout_marginTop="8dp"-->
+    <!--android:background="@color/white"-->
+    <!--android:layoutDirection="rtl"-->
+    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/only_free_cardview"></ExpandableListView>-->

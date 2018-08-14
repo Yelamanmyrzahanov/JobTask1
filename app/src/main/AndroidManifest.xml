@@ -9,9 +9,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher_logo_main"
+        android:icon="@mipmap/ic_launcher_2_round"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_logo_main"
+        android:roundIcon="@mipmap/ic_launcher_2_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
@@ -28,8 +28,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".EmptyActivity"/>
+        <activity android:name=".EmptyActivity" />
         <activity android:name=".SplashScreenActivity" />
 
         <meta-data
@@ -38,7 +37,8 @@
 
         <activity
             android:name=".ProfileActivity"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity">
+        </activity>
         <activity android:name=".BuyTicketsActivity" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
@@ -46,7 +46,7 @@
         <activity
             android:name=".ViewEventActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".SettingsActivity" />
         <activity android:name=".SettingsMainActivity" />
         <activity
             android:name=".OrderBreakDownActivity"
@@ -55,8 +55,13 @@
         <activity
             android:name=".LocationActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".FilterActivity"
-            android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name=".FilterActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".LauncherActivity">
+
+        </activity>
+        <activity android:name=".EventInfoActivity"></activity>
     </application>
 
 </manifest>

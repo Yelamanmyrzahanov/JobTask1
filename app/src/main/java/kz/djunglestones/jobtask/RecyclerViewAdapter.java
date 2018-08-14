@@ -2,6 +2,7 @@ package kz.djunglestones.jobtask;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     Context mContext;
     List<Link2Data> link2DataList;
+    private Handler mHandler = new Handler();
 
     public RecyclerViewAdapter(Context mContext, List<Link2Data> link2DataList) {
         this.mContext = mContext;
@@ -46,8 +48,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext,ViewEventActivity.class);
-                mContext.startActivity(intent);
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(mContext,ViewEventActivity.class);
+                        mContext.startActivity(intent);
+                    }
+                },200);
+
             }
         });
 //        holder.share.setOnClickListener(new View.OnClickListener() {
@@ -69,8 +77,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.mainImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext,ViewEventActivity.class);
-                mContext.startActivity(intent);
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(mContext,ViewEventActivity.class);
+                        mContext.startActivity(intent);
+                    }
+                },200);
+
             }
         });
 
@@ -85,8 +99,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.buy_tickets_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent buyTicketsIntent = new Intent(mContext,OrderBreakDownActivity.class);
-                mContext.startActivity(buyTicketsIntent);
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent buyTicketsIntent = new Intent(mContext,OrderBreakDownActivity.class);
+                        mContext.startActivity(buyTicketsIntent);
+                    }
+                },200);
             }
         });
 

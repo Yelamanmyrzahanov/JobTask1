@@ -42,6 +42,15 @@ public class RecyclerViewAdapterBoughtTickets extends RecyclerView.Adapter<Recyc
         holder.ticket_event_name.setText(boughtTicketsList.get(position).getEventName());
         holder.ticket_amount.setText(boughtTicketsList.get(position).getNumOfTickets()+" билет");
         holder.eventImageView.setImageResource(boughtTicketsList.get(position).getImage());
+        final String event_name = holder.ticket_event_name.getText().toString();
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext,EventInfoActivity.class);
+                intent.putExtra("event_name",event_name);
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
