@@ -237,10 +237,12 @@
                 android:id="@+id/sort_by_date_cardview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 app:cardCornerRadius="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/only_free_cardview">
@@ -290,8 +292,7 @@
                     <android.support.constraint.ConstraintLayout
                         android:id="@+id/sort_by_date_constraint_layout_content"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
+                        android:layout_height="324dp"
                         android:background="@color/white"
                         android:elevation="2dp"
                         app:layout_constraintBottom_toBottomOf="parent"

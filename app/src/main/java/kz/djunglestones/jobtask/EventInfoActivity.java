@@ -64,6 +64,22 @@ public class EventInfoActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.event_info_menu,menu);
 
+        MenuItem shareMenuItem = menu.findItem(R.id.event_share_menu_item);
+        shareMenuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                String shareBody = "Body text (Testing share button)";
+                String shareSub = "Subject text (Testing share button)";
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT,shareBody);
+                shareIntent.putExtra(Intent.EXTRA_TEXT,shareSub);
+                startActivity(Intent.createChooser(shareIntent,"Поделиться"));
+                return true;
+            }
+        });
+
+
         return super.onCreateOptionsMenu(menu);
     }
 

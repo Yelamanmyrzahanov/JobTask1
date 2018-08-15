@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -37,8 +39,7 @@
 
         <activity
             android:name=".ProfileActivity"
-            android:parentActivityName=".MainActivity">
-        </activity>
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".BuyTicketsActivity" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
@@ -58,10 +59,11 @@
         <activity
             android:name=".FilterActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".LauncherActivity">
-
-        </activity>
-        <activity android:name=".EventInfoActivity"></activity>
+        <activity android:name=".LauncherActivity" />
+        <activity android:name=".EventInfoActivity" />
+        <activity android:name=".ProfileEditActivity" />
+        <activity android:name=".PushNotificationsActivity" />
+        <activity android:name=".LegalSettingsActivity"></activity>
     </application>
 
 </manifest>

@@ -14,13 +14,15 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/order_complete_toolbar"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
+            android:theme="@style/MyAppBarLayoutTheme"
+            app:layout_constraintBottom_toTopOf="@+id/order_complete_cardview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:theme="@style/MyAppBarLayoutTheme"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
@@ -31,9 +33,12 @@
                 android:layout_gravity="right|center"
                 android:layout_margin="20dp"
                 android:fontFamily="@font/roboto_medium"
-                android:text="DONE"
+                android:text="готово"
+                android:textAllCaps="true"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:layout_editor_absoluteX="303dp"
+                tools:layout_editor_absoluteY="20dp" />
 
         </android.support.v7.widget.Toolbar>
 
@@ -216,7 +221,7 @@
                         android:layout_marginBottom="8dp"
                         android:layout_marginEnd="20dp"
                         android:layout_marginTop="8dp"
-                        android:src="@drawable/icon_share_grey"
+                        android:src="@drawable/ic_share_violet_radius"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />

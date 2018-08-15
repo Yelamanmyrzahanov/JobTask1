@@ -63,7 +63,7 @@ public class EventInfoFragment extends Fragment {
         company_pop_up_constraint_email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent shareIntent = new Intent(Intent.ACTION_SENDTO);
+//                Intent shareIntent = new Intent(Intent.ACTION_SEND);
 //                String shareBody = "Body text (Testing share button)";
 //                String shareSub = "Subject text (Testing share button)";
 //                shareIntent.putExtra(Intent.EXTRA_EMAIL,new String[]{company_pop_up_email_tv.getText().toString()});
@@ -71,12 +71,23 @@ public class EventInfoFragment extends Fragment {
 //                shareIntent.putExtra(Intent.EXTRA_TEXT,shareSub);
 //                startActivity(Intent.createChooser(shareIntent,"Связаться"));
 
-                Intent email = new Intent(Intent.ACTION_SENDTO);
+
+
+                Intent email = new Intent(Intent.ACTION_SEND);
+//                email.setData(Uri.parse("mailto: "+company_pop_up_email_tv.getText().toString()));
+//                startActivity(email);
                 email.putExtra(Intent.EXTRA_EMAIL, new String[]{company_pop_up_email_tv.getText().toString()});
                 email.putExtra(Intent.EXTRA_SUBJECT, "subject");
                 email.putExtra(Intent.EXTRA_TEXT, "message");
                 email.setType("message/rfc822");
-                startActivity(Intent.createChooser(email, "Choose an Email client :"));
+                try {
+                    startActivity(Intent.createChooser(email, "Choose an Email client :"));
+                }catch (android.content.ActivityNotFoundException ex){
+                    Toast.makeText(getContext(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                }
+//                Intent email = new Intent(Intent.ACTION_SENDTO);
+//                email.setData(Uri.parse("mailto: "+company_pop_up_email_tv.getText().toString()));
+//                startActivity(email);
             }
         });
         event_info_company_contact_btn = v.findViewById(R.id.event_info_company_contact_btn);

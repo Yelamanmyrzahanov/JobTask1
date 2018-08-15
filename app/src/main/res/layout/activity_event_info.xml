@@ -42,7 +42,7 @@
         <android.support.design.widget.TabLayout
             android:id="@+id/event_info_tab_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="44dp"
             android:background="@color/tab2"
             android:clickable="true"
             app:tabBackground="@drawable/tab_selector_ripple"

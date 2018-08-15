@@ -18,6 +18,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -108,12 +109,19 @@ public class ViewEventActivity extends AppCompatActivity implements OnMapReadyCa
 //                shareIntent.putExtra(Intent.EXTRA_TEXT,shareSub);
 //                startActivity(Intent.createChooser(shareIntent,"Связаться"));
 
-                Intent email = new Intent(Intent.ACTION_SENDTO);
-                email.putExtra(Intent.EXTRA_EMAIL, new String[]{"youremail@gmail.com"});
+                Intent email = new Intent(Intent.ACTION_SEND);
+//                email.setData(Uri.parse("mailto: "+company_pop_up_email_tv.getText().toString()));
+//                startActivity(email);
+                email.putExtra(Intent.EXTRA_EMAIL, new String[]{company_pop_up_email_tv.getText().toString()});
                 email.putExtra(Intent.EXTRA_SUBJECT, "subject");
                 email.putExtra(Intent.EXTRA_TEXT, "message");
                 email.setType("message/rfc822");
-                startActivity(Intent.createChooser(email, "Choose an Email client :"));
+                try {
+                    startActivity(Intent.createChooser(email, "Choose an Email client :"));
+                }catch (android.content.ActivityNotFoundException ex){
+                    Toast.makeText(ViewEventActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 

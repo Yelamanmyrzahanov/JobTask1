@@ -208,6 +208,17 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+        MenuItem editProfileMenu = menu.findItem(R.id.editSubMenu);
+        editProfileMenu.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent editProfileIntent = new Intent(ProfileActivity.this,ProfileEditActivity.class);
+                editProfileIntent.putExtra("first_name",profile_username.getText().toString());
+                startActivity(editProfileIntent);
+                return true;
+            }
+        });
+
         return super.onCreateOptionsMenu(menu);
     }
 

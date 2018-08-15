@@ -57,7 +57,7 @@
             app:layout_constraintTop_toBottomOf="@+id/third_fragment_description" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/get_contacts_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="128dp"

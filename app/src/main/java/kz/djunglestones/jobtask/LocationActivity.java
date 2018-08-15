@@ -28,6 +28,8 @@ import com.google.android.gms.location.LocationServices;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
@@ -160,19 +162,30 @@ public class LocationActivity extends AppCompatActivity {
         cityList = new ArrayList<>();
         cityList.add(new City("Алматы"));
         cityList.add(new City("Астана"));
-        cityList.add(new City("Актау"));
-        cityList.add(new City("Атырау"));
+        cityList.add(new City("Актобе"));
         cityList.add(new City("Шымкент"));
-        cityList.add(new City("Тараз"));
-        cityList.add(new City("Орал"));
-        cityList.add(new City("Караганды"));
-        cityList.add(new City("Алматы"));
-        cityList.add(new City("Астана"));
-        cityList.add(new City("Актау"));
+        cityList.add(new City("Караганда"));
+        cityList.add(new City("Усть-каменогорск"));
+        cityList.add(new City("Кызылорда"));
         cityList.add(new City("Атырау"));
-        cityList.add(new City("Шымкент"));
+        cityList.add(new City("Актау"));
+        cityList.add(new City("Костанай"));
+        cityList.add(new City("Павлодар"));
+        cityList.add(new City("Петропавловск"));
+        cityList.add(new City("Семей"));
+        cityList.add(new City("Талдыкорган"));
         cityList.add(new City("Тараз"));
-        cityList.add(new City("Орал"));
-        cityList.add(new City("Караганды"));
+        cityList.add(new City("Темиртау"));
+        cityList.add(new City("Уральск"));
+        cityList.add(new City("Рудный"));
+        cityList.add(new City("Экибастуз"));
+        cityList.add(new City("Туркестан"));
+        cityList.add(new City("Жанаозен"));
+        Collections.sort(cityList, new Comparator<City>() {
+            @Override
+            public int compare(City o1, City o2) {
+                return o1.getCityName().compareTo(o2.getCityName());
+            }
+        });
     }
 }

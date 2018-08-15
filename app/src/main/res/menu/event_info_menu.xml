@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/event_share_menu_item"
-        android:icon="@drawable/share_menu_icon"
+        android:icon="@drawable/ic_share_white_radius"
         android:title="share"
         app:showAsAction="always" />
 </menu>

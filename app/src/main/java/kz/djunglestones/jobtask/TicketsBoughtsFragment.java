@@ -46,12 +46,12 @@ public class TicketsBoughtsFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         boughtTicketsList = new ArrayList<>();
-        boughtTicketsList.add(new BoughtTickets("Сб, Фев 13, 18:00","Семинар по анлийскому языку","Алматы",1,R.drawable.concert));
-        boughtTicketsList.add(new BoughtTickets("Сб, Фев 13, 18:00","Семинар по анлийскому языку","Алматы",1,R.drawable.poster));
-        boughtTicketsList.add(new BoughtTickets("Сб, Фев 13, 18:00","Семинар по анлийскому языку","Алматы",1,R.drawable.mount1));
-        boughtTicketsList.add(new BoughtTickets("Сб, Фев 13, 18:00","Семинар по анлийскому языку","Алматы",1,R.drawable.concert));
-        boughtTicketsList.add(new BoughtTickets("Сб, Фев 13, 18:00","Семинар по анлийскому языку","Алматы",1,R.drawable.poster));
-        boughtTicketsList.add(new BoughtTickets("Сб, Фев 13, 18:00","Семинар по анлийскому языку","Алматы",1,R.drawable.mount1));
+        boughtTicketsList.add(new BoughtTickets("Сб, Фев 13, 18:00","Семинар по английскому языку","Алматы",1,R.drawable.concert));
+        boughtTicketsList.add(new BoughtTickets("Сб, Фев 13, 18:00","Семинар по английскому языку","Алматы",1,R.drawable.poster));
+        boughtTicketsList.add(new BoughtTickets("Сб, Фев 13, 18:00","Семинар по английскому языку","Алматы",1,R.drawable.madagascar));
+        boughtTicketsList.add(new BoughtTickets("Сб, Фев 13, 18:00","Семинар по английскому языку","Алматы",1,R.drawable.ferdinand));
+        boughtTicketsList.add(new BoughtTickets("Сб, Фев 13, 18:00","Семинар по английскому языку","Алматы",1,R.drawable.zveropoi));
+        boughtTicketsList.add(new BoughtTickets("Сб, Фев 13, 18:00","Семинар по английскому языку","Алматы",1,R.drawable.sonic_min));
 
     }
 }
