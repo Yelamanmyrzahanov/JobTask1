@@ -30,15 +30,13 @@
                 android:id="@+id/order_complete_done"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right|center"
-                android:layout_margin="20dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="20dp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="готово"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
-                android:textSize="14sp"
-                tools:layout_editor_absoluteX="303dp"
-                tools:layout_editor_absoluteY="20dp" />
+                android:textSize="14sp"/>
 
         </android.support.v7.widget.Toolbar>
 
@@ -209,7 +207,7 @@
                         android:layout_marginBottom="16dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="16dp"
-                        android:text="Invite"
+                        android:text="Пригласить"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -219,7 +217,7 @@
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginEnd="20dp"
+                        android:layout_marginEnd="12dp"
                         android:layout_marginTop="8dp"
                         android:src="@drawable/ic_share_violet_radius"
                         app:layout_constraintBottom_toBottomOf="parent"

@@ -65,7 +65,8 @@ public class OrderCompleteActivity extends AppCompatActivity {
         order_complete_cardview_ticket_constraint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(OrderCompleteActivity.this,BuyTicketsActivity.class);
+                Intent intent = new Intent(OrderCompleteActivity.this,EventInfoActivity.class);
+                intent.putExtra("event_name",order_complete_event_name.getText().toString());
                 startActivity(intent);
             }
         });

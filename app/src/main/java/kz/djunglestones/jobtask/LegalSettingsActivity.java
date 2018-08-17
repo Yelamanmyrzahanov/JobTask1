@@ -16,7 +16,7 @@ public class LegalSettingsActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.legal_toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Push-уведомления");
+        getSupportActionBar().setTitle("Юридическая часть");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }

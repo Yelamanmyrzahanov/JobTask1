@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PushNotificationsActivity">
+    tools:context=".PushNotificationsActivity"
+    android:background="@color/white">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/push_toolbar"
@@ -37,7 +38,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/roboto_medium"
             android:text="Уведомить меня"
-            android:textColor="@color/black_textviews"
+            android:textColor="@color/dark_black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,7 +50,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="Сообщите мне за час до моего мероприятия"
+            android:text="Уведомить за час до моего мероприятия"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -92,7 +93,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/roboto_medium"
             android:text="Объявления"
-            android:textColor="@color/black_textviews"
+            android:textColor="@color/dark_black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -104,7 +105,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="Не пропустите новости и обновления"
+            android:text="Новости и обновления QEL"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/announcements_constraint_tv" />
@@ -148,7 +149,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/roboto_medium"
             android:text="Обновления друзей"
-            android:textColor="@color/black_textviews"
+            android:textColor="@color/dark_black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -160,7 +161,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="Когда друзья собираются на мероприятие"
+            android:text="Когда друзья идут на мероприятие"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/friends_updates_constraint_tv" />

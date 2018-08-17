@@ -7,14 +7,16 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
-public class OrderBreakDownActivity extends AppCompatActivity {
+public class OrderBreakDownActivity extends AppCompatActivity implements View.OnClickListener{
     private android.support.v7.widget.Toolbar toolbar;
     private ConstraintLayout first_constraint_card;
     private Dialog dialog;
@@ -26,6 +28,30 @@ public class OrderBreakDownActivity extends AppCompatActivity {
     private TextView order_break_down_ticket_price,order_break_down_total_price,order_break_down_quantity_and_total,order_break_tickets_amount_tv,order_break_down_event_name,order_break_down_event_date;
     private Button order_break_down_complete_order_btn;
 
+    private static final int[] constraint_IDS = {
+            R.id.first_constraint_card,
+            R.id.general_cardview_constraint,
+            R.id.limited_cardview_constraint
+    };
+
+    private static final int[] event_name_textview_ids = {
+            R.id.order_break_down_ticket_name,
+            R.id.order_break_down_general_ticket_name,
+            R.id.order_break_down_limited_ticket_name
+    };
+
+    private static final int[] ticket_price = {
+            R.id.order_break_down_ticket_price,
+            R.id.order_break_down_general_ticket_price,
+            R.id.order_break_down_limited_ticket_price
+    };
+
+    private static final int[] ticketCounters={
+            R.id.order_break_tickets_amount_tv,
+            R.id.order_break_limited_tickets_amount_tv,
+            R.id.order_break_limited_tickets_amount_tv
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,17 +59,16 @@ public class OrderBreakDownActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order_break_down);
         toolbar = findViewById(R.id.order_break_down_toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Order breakdown");
+        getSupportActionBar().setTitle("Оформить заказ");
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        order_break_down_ticket_price = findViewById(R.id.order_break_down_ticket_price);
-        order_break_down_total_price = findViewById(R.id.order_break_down_total_price);
-        order_break_down_quantity_and_total = findViewById(R.id.order_break_down_quantity_and_total);
-        order_break_tickets_amount_tv = findViewById(R.id.order_break_tickets_amount_tv);
-        order_break_down_complete_order_btn = findViewById(R.id.order_break_down_complete_order_btn);
-        order_break_down_event_name = findViewById(R.id.order_break_down_event_name);
-        order_break_down_event_date = findViewById(R.id.order_break_down_event_date);
+        initUI();
+        for (int i:constraint_IDS){
+            ConstraintLayout constraintLayout = findViewById(i);
+            constraintLayout.setOnClickListener(this);
+        }
+
 
 
         order_break_down_complete_order_btn.setOnClickListener(new View.OnClickListener() {
@@ -58,16 +83,7 @@ public class OrderBreakDownActivity extends AppCompatActivity {
         });
 
 
-        dialog = new Dialog(OrderBreakDownActivity.this);
-        dialog.setContentView(R.layout.order_break_down_pop_up);
-        pop_up_ticket_name = dialog.findViewById(R.id.pop_up_buy_ticket);
-        pop_up_ticket_price = dialog.findViewById(R.id.pop_up_ticket_price);
-        pop_up_ticket_price_constant= order_break_down_ticket_price.getText().toString();
-        pop_up_amount_ticket = dialog.findViewById(R.id.pop_up_amount_ticket);
-        pop_up_amount_ticket.setText(String.valueOf(pop_up_ticket_amount_counter));
-        pop_up_minus_ticket = dialog.findViewById(R.id.pop_up_minus_ticket);
-        pop_up_add_ticket = dialog.findViewById(R.id.pop_up_add_ticket);
-        pop_up_buy_ticket = dialog.findViewById(R.id.pop_up_buy_ticket);
+
 
         pop_up_buy_ticket.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,16 +122,57 @@ public class OrderBreakDownActivity extends AppCompatActivity {
             }
         });
 
-        first_constraint_card = findViewById(R.id.first_constraint_card);
+
         first_constraint_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
+                showPopUp();
             }
         });
 
 
+
+    }
+
+    private void showPopUp() {
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().setGravity(Gravity.CENTER);
+        dialog.show();
+    }
+
+    private void initUI() {
+
+        order_break_down_ticket_price = findViewById(R.id.order_break_down_ticket_price);
+        order_break_down_total_price = findViewById(R.id.order_break_down_total_price);
+        order_break_down_quantity_and_total = findViewById(R.id.order_break_down_quantity_and_total);
+        order_break_tickets_amount_tv = findViewById(R.id.order_break_tickets_amount_tv);
+        order_break_down_complete_order_btn = findViewById(R.id.order_break_down_complete_order_btn);
+        order_break_down_event_name = findViewById(R.id.order_break_down_event_name);
+        order_break_down_event_date = findViewById(R.id.order_break_down_event_date);
+
+        dialog = new Dialog(OrderBreakDownActivity.this);
+        dialog.setContentView(R.layout.order_break_down_pop_up);
+        pop_up_ticket_name = dialog.findViewById(R.id.pop_up_buy_ticket);
+        pop_up_ticket_price = dialog.findViewById(R.id.pop_up_ticket_price);
+        pop_up_ticket_price_constant= order_break_down_ticket_price.getText().toString();
+        pop_up_amount_ticket = dialog.findViewById(R.id.pop_up_amount_ticket);
+        pop_up_amount_ticket.setText(String.valueOf(pop_up_ticket_amount_counter));
+        pop_up_minus_ticket = dialog.findViewById(R.id.pop_up_minus_ticket);
+        pop_up_add_ticket = dialog.findViewById(R.id.pop_up_add_ticket);
+        pop_up_buy_ticket = dialog.findViewById(R.id.pop_up_buy_ticket);
+
+        first_constraint_card = findViewById(R.id.first_constraint_card);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        showPopUp();
+//        if (v.getId() == constraint_IDS[0]){
+//
+//            showPopUp();
+//
+//        }
 
     }
 }

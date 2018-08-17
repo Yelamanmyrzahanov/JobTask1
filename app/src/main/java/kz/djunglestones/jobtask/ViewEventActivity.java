@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -79,6 +80,7 @@ public class ViewEventActivity extends AppCompatActivity implements OnMapReadyCa
             @Override
             public void onClick(View v) {
                 dialogPopUp.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialogPopUp.getWindow().setGravity(Gravity.CENTER);
                 dialogPopUp.show();
             }
         });

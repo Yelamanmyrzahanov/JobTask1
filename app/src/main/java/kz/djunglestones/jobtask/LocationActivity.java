@@ -167,6 +167,7 @@ public class LocationActivity extends AppCompatActivity {
         cityList.add(new City("Караганда"));
         cityList.add(new City("Усть-каменогорск"));
         cityList.add(new City("Кызылорда"));
+        cityList.add(new City("Кокшетау"));
         cityList.add(new City("Атырау"));
         cityList.add(new City("Актау"));
         cityList.add(new City("Костанай"));

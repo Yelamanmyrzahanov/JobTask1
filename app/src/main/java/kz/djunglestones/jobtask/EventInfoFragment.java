@@ -3,10 +3,13 @@ package kz.djunglestones.jobtask;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -94,6 +97,8 @@ public class EventInfoFragment extends Fragment {
         event_info_company_contact_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dialogPopUp.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialogPopUp.getWindow().setGravity(Gravity.CENTER);
                 dialogPopUp.show();
             }
         });
