@@ -4,7 +4,7 @@
     <item
         android:id="@+id/filter_menu"
         android:icon="@drawable/ic_filter_list_white_24dp"
-        android:title="filter"
+        android:title="Фильтр"
         app:showAsAction="always" />
 
     <item
@@ -14,17 +14,21 @@
     app:showAsAction="always"/>
 
     <item
-    android:id="@+id/hamburger_menu_main"
-    android:icon="@drawable/ic_more_vert_black_24dp"
-    android:title="Menu"
-    android:popupBackground="@android:color/white"
-    android:popupMenuStyle="@style/ThemeOverlay.AppCompat.Light"
-    android:background="@null"
-    app:showAsAction="always">
-    <menu>
-        <item android:id="@+id/profile_sub_menu" android:title="Мой Профиль"></item>
-        <item android:id="@+id/settingsSubMenu" android:title="Настройки"></item>
-    </menu>
+        android:id="@+id/hamburger_menu_main"
+        android:background="@null"
+        android:icon="@drawable/ic_more_vert_black_24dp"
+        android:popupBackground="@android:color/white"
+        android:popupMenuStyle="@style/ThemeOverlay.AppCompat.Light"
+        android:title="Меню"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/profile_sub_menu"
+                android:title="Мой Профиль"></item>
+            <item
+                android:id="@+id/settingsSubMenu"
+                android:title="Настройки"></item>
+        </menu>
 
     </item>
 

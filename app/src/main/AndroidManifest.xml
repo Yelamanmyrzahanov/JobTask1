@@ -63,7 +63,8 @@
         <activity android:name=".EventInfoActivity" />
         <activity android:name=".ProfileEditActivity" />
         <activity android:name=".PushNotificationsActivity" />
-        <activity android:name=".LegalSettingsActivity"></activity>
+        <activity android:name=".LegalSettingsActivity" />
+        <activity android:name=".EmailToOrganizerActivity"></activity>
     </application>
 
 </manifest>

@@ -48,6 +48,7 @@ public class ViewEventActivity extends AppCompatActivity implements OnMapReadyCa
     private ConstraintLayout company_pop_up_constraint_email,company_pop_up_constraint_phone;
     private TextView company_pop_up_phone,company_pop_up_email_tv;
 
+    private String email_of_organizer = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -61,6 +62,8 @@ public class ViewEventActivity extends AppCompatActivity implements OnMapReadyCa
         setSupportActionBar(viewEventToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        initUI();
 
 //        mapView = findViewById(R.id.event_mapView);
 //        mapView.getMap().move(
@@ -79,55 +82,58 @@ public class ViewEventActivity extends AppCompatActivity implements OnMapReadyCa
         company_contact_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialogPopUp.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialogPopUp.getWindow().setGravity(Gravity.CENTER);
-                dialogPopUp.show();
+//                dialogPopUp.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//                dialogPopUp.getWindow().setGravity(Gravity.CENTER);
+//                dialogPopUp.show();
+                email_of_organizer = "nariman.duisekov@gmail.com";
+                Intent emailToOrganizer = new Intent(ViewEventActivity.this,EmailToOrganizerActivity.class);
+                emailToOrganizer.putExtra("email_of_organizer",email_of_organizer);
+                startActivity(emailToOrganizer);
             }
         });
 
-        dialogPopUp = new Dialog(ViewEventActivity.this);
-        dialogPopUp.setContentView(R.layout.company_contacts_pop_up);
-        company_pop_up_constraint_phone = dialogPopUp.findViewById(R.id.company_pop_up_constraint_phone);
-        company_pop_up_phone = dialogPopUp.findViewById(R.id.company_pop_up_phone);
-        company_pop_up_constraint_phone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String phone = "+"+company_pop_up_phone.getText().toString();
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
-                startActivity(intent);
-            }
-        });
+//        dialogPopUp = new Dialog(ViewEventActivity.this);
+//        dialogPopUp.setContentView(R.layout.company_contacts_pop_up);
+//        company_pop_up_constraint_phone = dialogPopUp.findViewById(R.id.company_pop_up_constraint_phone);
+//        company_pop_up_phone = dialogPopUp.findViewById(R.id.company_pop_up_phone);
+//        company_pop_up_constraint_phone.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String phone = "+"+company_pop_up_phone.getText().toString();
+//                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+//                startActivity(intent);
+//            }
+//        });
+//
+//        company_pop_up_constraint_email = dialogPopUp.findViewById(R.id.company_pop_up_constraint_email);
+//        company_pop_up_email_tv = dialogPopUp.findViewById(R.id.company_pop_up_email_tv);
+//        company_pop_up_constraint_email.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                Intent shareIntent = new Intent(Intent.ACTION_SENDTO);
+////                String shareBody = "Body text (Testing share button)";
+////                String shareSub = "Subject text (Testing share button)";
+////                shareIntent.putExtra(Intent.EXTRA_EMAIL,new String[]{company_pop_up_email_tv.getText().toString()});
+////                shareIntent.putExtra(Intent.EXTRA_SUBJECT,shareBody);
+////                shareIntent.putExtra(Intent.EXTRA_TEXT,shareSub);
+////                startActivity(Intent.createChooser(shareIntent,"Связаться"));
+//
+//                Intent email = new Intent(Intent.ACTION_SEND);
+////                email.setData(Uri.parse("mailto: "+company_pop_up_email_tv.getText().toString()));
+////                startActivity(email);
+//                email.putExtra(Intent.EXTRA_EMAIL, new String[]{company_pop_up_email_tv.getText().toString()});
+//                email.putExtra(Intent.EXTRA_SUBJECT, "subject");
+//                email.putExtra(Intent.EXTRA_TEXT, "message");
+//                email.setType("message/rfc822");
+//                try {
+//                    startActivity(Intent.createChooser(email, "Choose an Email client :"));
+//                }catch (android.content.ActivityNotFoundException ex){
+//                    Toast.makeText(ViewEventActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+//                }
+//
+//            }
+//        });
 
-        company_pop_up_constraint_email = dialogPopUp.findViewById(R.id.company_pop_up_constraint_email);
-        company_pop_up_email_tv = dialogPopUp.findViewById(R.id.company_pop_up_email_tv);
-        company_pop_up_constraint_email.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                Intent shareIntent = new Intent(Intent.ACTION_SENDTO);
-//                String shareBody = "Body text (Testing share button)";
-//                String shareSub = "Subject text (Testing share button)";
-//                shareIntent.putExtra(Intent.EXTRA_EMAIL,new String[]{company_pop_up_email_tv.getText().toString()});
-//                shareIntent.putExtra(Intent.EXTRA_SUBJECT,shareBody);
-//                shareIntent.putExtra(Intent.EXTRA_TEXT,shareSub);
-//                startActivity(Intent.createChooser(shareIntent,"Связаться"));
-
-                Intent email = new Intent(Intent.ACTION_SEND);
-//                email.setData(Uri.parse("mailto: "+company_pop_up_email_tv.getText().toString()));
-//                startActivity(email);
-                email.putExtra(Intent.EXTRA_EMAIL, new String[]{company_pop_up_email_tv.getText().toString()});
-                email.putExtra(Intent.EXTRA_SUBJECT, "subject");
-                email.putExtra(Intent.EXTRA_TEXT, "message");
-                email.setType("message/rfc822");
-                try {
-                    startActivity(Intent.createChooser(email, "Choose an Email client :"));
-                }catch (android.content.ActivityNotFoundException ex){
-                    Toast.makeText(ViewEventActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-
-        event_buy_tickets_btn = findViewById(R.id.event_buy_tickets_btn);
         event_buy_tickets_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,7 +155,6 @@ public class ViewEventActivity extends AppCompatActivity implements OnMapReadyCa
 
         addCard();
 
-        recyclerView = findViewById(R.id.event_card_recyclerview);
         recyclerView.setNestedScrollingEnabled(false);
         PopularCardviewRecyclerAdapter popularCardviewRecyclerAdapter = new PopularCardviewRecyclerAdapter(ViewEventActivity.this,popularCardviewList);
         recyclerView.setLayoutManager(new LinearLayoutManager(ViewEventActivity.this,LinearLayoutManager.HORIZONTAL,false));
@@ -188,6 +193,12 @@ public class ViewEventActivity extends AppCompatActivity implements OnMapReadyCa
         });
 
 
+    }
+
+    private void initUI() {
+        company_contact_btn = findViewById(R.id.company_contact_btn);
+        event_buy_tickets_btn = findViewById(R.id.event_buy_tickets_btn);
+        recyclerView = findViewById(R.id.event_card_recyclerview);
     }
 
     private void addCard() {

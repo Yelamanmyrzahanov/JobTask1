@@ -43,6 +43,7 @@ public class OrderCompleteActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String event_name = intent.getStringExtra("ticket_name");
+        Toast.makeText(OrderCompleteActivity.this,event_name,Toast.LENGTH_SHORT).show();
         String event_date = intent.getStringExtra("ticket_date");
         String ticket_amount = intent.getStringExtra("ticket_amount");
         int ticket_amount_counter = Integer.parseInt(ticket_amount);

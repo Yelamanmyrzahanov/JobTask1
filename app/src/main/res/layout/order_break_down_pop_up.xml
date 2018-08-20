@@ -23,11 +23,15 @@
 
             <TextView
                 android:id="@+id/pop_up_ticket_name"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="26dp"
                 android:fontFamily="@font/roboto_regular"
                 android:text="Early Bird Билет"
+                android:maxLines="2"
+                android:ellipsize="end"
                 android:textAlignment="center"
                 android:textColor="#505050"
                 android:textSize="24sp"
