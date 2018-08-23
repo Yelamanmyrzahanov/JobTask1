@@ -1,6 +1,7 @@
 package kz.djunglestones.jobtask;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -12,6 +13,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -215,6 +217,29 @@ public class ProfileActivity extends AppCompatActivity {
                 Intent editProfileIntent = new Intent(ProfileActivity.this,ProfileEditActivity.class);
                 editProfileIntent.putExtra("first_name",profile_username.getText().toString());
                 startActivity(editProfileIntent);
+                return true;
+            }
+        });
+
+        MenuItem logOutProfileMenu = menu.findItem(R.id.logOutSubMenu);
+        logOutProfileMenu.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
+                builder.setMessage("Вы действительно хотите выйти?").setCancelable(true).setPositiveButton("ДА", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(ProfileActivity.this,"Exit btn clicked",Toast.LENGTH_SHORT).show();
+                    }
+                }).setNegativeButton("ОТМЕНА", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+//                        Toast.makeText(ProfileActivity.this,"Cancel btn clicked",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                AlertDialog alert = builder.create();
+                alert.show();
                 return true;
             }
         });

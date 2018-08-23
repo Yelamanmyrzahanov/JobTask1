@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -87,9 +88,8 @@ public class OrderBreakDownActivity extends AppCompatActivity implements View.On
             }
         });
 
-        order_break_down_complete_order_btn.setBackgroundColor(Color.GRAY);
+        order_break_down_complete_order_btn.setBackground(ContextCompat.getDrawable(OrderBreakDownActivity.this, R.drawable.buy_ticket_radius_btn_grey));
         order_break_down_complete_order_btn.setClickable(false);
-
 
 
         pop_up_buy_ticket.setOnClickListener(new View.OnClickListener() {
@@ -111,12 +111,13 @@ public class OrderBreakDownActivity extends AppCompatActivity implements View.On
                 order_break_down_quantity_and_total.setText("Количество: "+String.valueOf(pop_up_ticket_amount_counter)+"\n"+pop_up_ticket_price.getText().toString());
                 if (pop_up_ticket_amount_counter!=0){
 
-                    order_break_down_complete_order_btn.setBackgroundColor(Color.parseColor("#63be87"));
+                    order_break_down_complete_order_btn.setBackground(ContextCompat.getDrawable(OrderBreakDownActivity.this, R.drawable.buy_ticket_radius_button));
                     order_break_down_complete_order_btn.setClickable(true);
 
                 }else{
 
                     order_break_down_complete_order_btn.setBackgroundColor(Color.GRAY);
+                    order_break_down_complete_order_btn.setBackground(ContextCompat.getDrawable(OrderBreakDownActivity.this, R.drawable.buy_ticket_radius_btn_grey));
 
                 }
                 dialog.dismiss();

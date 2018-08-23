@@ -25,6 +25,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:15.0.1'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:27.1.1'
+    compile 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     implementation 'com.android.support:support-v4:27.1.1'
     testImplementation 'junit:junit:4.12'
@@ -52,9 +53,9 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     compile 'com.github.iammert:ExpandableLayout:1.4.1'
     compile 'com.wdullaer:materialdatetimepicker:3.6.3'
-    compile files('libs/activation.jar')
-    compile files('libs/additionnal.jar')
-    compile files('libs/mail.jar')
+//    compile files('libs/activation.jar')
+//    compile files('libs/additionnal.jar')
+//    compile files('libs/mail.jar')
 }
 
 apply plugin: 'com.google.gms.google-services'

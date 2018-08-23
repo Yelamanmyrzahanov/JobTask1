@@ -55,7 +55,9 @@ public class OrderCompleteActivity extends AppCompatActivity {
         order_complete_event_name.setText(event_name);
         order_complete_date.setText(event_date);
 
-        if (ticket_amount_counter>=1 && ticket_amount_counter<5){
+        if (ticket_amount_counter==1) {
+            order_complete_card_ticket_amount.setText(ticket_amount+" билет");
+        }else if (ticket_amount_counter>1 && ticket_amount_counter<5){
             order_complete_card_ticket_amount.setText(ticket_amount+" билета");
         }else {
             order_complete_card_ticket_amount.setText(ticket_amount+" билетов");

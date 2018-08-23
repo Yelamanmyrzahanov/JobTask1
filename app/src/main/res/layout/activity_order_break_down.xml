@@ -83,19 +83,27 @@
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/back_transparent_background"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toTopOf="@+id/order_break_down_bottom_layout"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/back_transparent_background">
+
         <android.support.constraint.ConstraintLayout
+            android:id="@+id/order_break_down_center_layout_constraint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <android.support.v7.widget.CardView
                 android:id="@+id/order_break_down_cardview"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:visibility="visible"
                 app:cardElevation="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -111,7 +119,6 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:clickable="true"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
@@ -146,8 +153,8 @@
                             android:layout_marginStart="12dp"
                             android:ellipsize="end"
                             android:fontFamily="@font/roboto_light"
-                            android:maxLines="1"
-                            android:text="Early Bird билеты Early Bird билеты Early Bird билеты"
+                            android:maxLines="2"
+                            android:text="Стандартный"
                             android:textColor="@color/colorPrimary"
                             android:textSize="18sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -174,9 +181,9 @@
                             android:id="@+id/view7"
                             android:layout_width="0dp"
                             android:layout_height="1dp"
-                            android:layout_marginTop="24dp"
                             android:alpha="0.12"
                             android:background="#000000"
+                            android:visibility="gone"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent" />
@@ -204,12 +211,14 @@
                 android:layout_height="wrap_content"
                 android:background="@color/activity_main_settings_blue_tv"
                 android:fontFamily="@font/roboto_light"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
+                android:paddingBottom="2dp"
+                android:paddingEnd="4dp"
+                android:paddingStart="4dp"
+                android:paddingTop="2dp"
                 android:text="раcпродано"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
-                android:textSize="12sp"
+                android:textSize="10sp"
                 android:visibility="visible"
                 app:layout_constraintBottom_toTopOf="@id/limited_cardview"
                 app:layout_constraintEnd_toEndOf="@id/limited_cardview" />
@@ -218,11 +227,13 @@
                 android:id="@+id/limited_cardview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
                 android:background="@color/light_grey"
                 app:cardElevation="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/general_cardview">
@@ -238,7 +249,7 @@
                         android:id="@+id/order_break_limited_tickets_amount_relative_layout"
                         android:layout_width="64dp"
                         android:layout_height="64dp"
-                        android:background="@color/grey_light"
+                        android:background="#f2f2f2"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
@@ -259,29 +270,18 @@
                         android:id="@+id/order_break_down_limited_ticket_name"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
+                        android:layout_marginEnd="12dp"
                         android:layout_marginStart="12dp"
-                        android:layout_marginTop="4dp"
                         android:ellipsize="end"
                         android:fontFamily="@font/roboto_light"
-                        android:maxLines="1"
-                        android:text="Limited Early Bird Limited Early Bird"
+                        android:maxLines="2"
+                        android:text="Limited Early Bird Restricted"
+                        android:textColor="@color/tab_background_selected"
                         android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/order_break_down_limited_ticket_price"
                         app:layout_constraintStart_toEndOf="@+id/order_break_limited_tickets_amount_relative_layout"
-                        app:layout_constraintTop_toTopOf="@+id/order_break_limited_tickets_amount_relative_layout" />
-
-                    <TextView
-                        android:id="@+id/textView13"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:fontFamily="@font/roboto_light"
-                        android:text="Билеты"
-                        android:textSize="18sp"
-                        app:layout_constraintBottom_toBottomOf="@+id/order_break_limited_tickets_amount_relative_layout"
-                        app:layout_constraintStart_toEndOf="@+id/order_break_limited_tickets_amount_relative_layout"
-                        app:layout_constraintTop_toBottomOf="@+id/order_break_down_limited_ticket_name" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/order_break_down_limited_ticket_price"
@@ -291,6 +291,7 @@
                         android:fontFamily="@font/roboto_light"
                         android:text="2200 ₸"
                         android:textAlignment="viewEnd"
+                        android:textColor="@color/tab_background_selected"
                         android:textSize="24sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -300,9 +301,7 @@
                 </android.support.constraint.ConstraintLayout>
 
 
-
             </android.support.v7.widget.CardView>
-
 
 
             <android.support.v7.widget.CardView
@@ -346,7 +345,7 @@
                         android:id="@+id/order_break_down_general_ticket_name"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
+                        android:layout_marginEnd="12dp"
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="4dp"
                         android:ellipsize="end"

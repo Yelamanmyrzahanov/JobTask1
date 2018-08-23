@@ -17,7 +17,7 @@ public class SettingsMainActivity extends AppCompatActivity implements View.OnCl
     private ConstraintLayout inviteFriendConstraint,legalConstraint,pushNotificationsConstraint;
 
     private static final int[] constraint_IDS = {
-            R.id.account_constraint_layout_settings,R.id.fivth_constraint_layout_settings,R.id.sixth_constraint_layout_settings,R.id.sevent_constraint_layout_settings,R.id.eighth_constraint_layout_settings,R.id.nineth_constraint_layout_settings
+            R.id.account_constraint_layout_settings,R.id.fivth_constraint_layout_settings,R.id.sixth_constraint_layout_settings,R.id.sevent_constraint_layout_settings
     };
 
 //    private static final int[] textview_IDS = {
