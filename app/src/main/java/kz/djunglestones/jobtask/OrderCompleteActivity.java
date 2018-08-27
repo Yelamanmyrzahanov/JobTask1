@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -31,7 +32,7 @@ public class OrderCompleteActivity extends AppCompatActivity {
     private CircleImageView whatsapp_circle,vkontakte_circle,email_circle;
     private ImageView more_options_circle;
     private TextView sms_circle;
-
+    private ArrayList<String> eventNameList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,11 +44,11 @@ public class OrderCompleteActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String event_name = intent.getStringExtra("ticket_name");
+        eventNameList = getIntent().getStringArrayListExtra("event_ticket_types");
         Toast.makeText(OrderCompleteActivity.this,event_name,Toast.LENGTH_SHORT).show();
         String event_date = intent.getStringExtra("ticket_date");
         String ticket_amount = intent.getStringExtra("ticket_amount");
         int ticket_amount_counter = Integer.parseInt(ticket_amount);
-
         order_complete_card_ticket_amount = findViewById(R.id.order_complete_card_ticket_amount);
         order_complete_date = findViewById(R.id.order_complete_date);
         order_complete_event_name = findViewById(R.id.order_complete_event_name);

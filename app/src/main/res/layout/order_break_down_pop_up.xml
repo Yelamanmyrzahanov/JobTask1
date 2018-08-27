@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="310dp"
-    android:layout_height="390dp"
-    android:layout_gravity="center_horizontal"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
     android:background="@android:color/transparent">
 
     <android.support.v7.widget.CardView
@@ -28,10 +28,10 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="26dp"
-                android:fontFamily="@font/roboto_regular"
-                android:text="Early Bird Билет"
-                android:maxLines="2"
                 android:ellipsize="end"
+                android:fontFamily="@font/roboto_regular"
+                android:maxLines="2"
+                android:text="Early Bird Билет"
                 android:textAlignment="center"
                 android:textColor="#505050"
                 android:textSize="24sp"
@@ -40,14 +40,14 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/pop_up_ticket_price"
+                android:id="@+id/pop_up_ticket_amount_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto_light"
-                android:text="Итого: 0 ₸"
+                android:text="Осталось билетов: 100"
                 android:textColor="#505050"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/pop_up_ticket_name" />
@@ -66,7 +66,7 @@
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pop_up_ticket_price" />
+                app:layout_constraintTop_toBottomOf="@+id/pop_up_ticket_amount_total" />
 
             <ImageButton
                 android:id="@+id/pop_up_minus_ticket"

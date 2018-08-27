@@ -14,10 +14,10 @@ import android.widget.Toast;
 public class SettingsMainActivity extends AppCompatActivity implements View.OnClickListener{
     private android.support.v7.widget.Toolbar toolbar;
     private TextView push_notifications_settings,pin_code_settings,legal_settings,help_settings,ads_settings,feedback_settings,email_settings,phone_number_settings;
-    private ConstraintLayout inviteFriendConstraint,legalConstraint,pushNotificationsConstraint;
+    private ConstraintLayout inviteFriendConstraint,legalConstraint,pushNotificationsConstraint,privacyConstraint;
 
     private static final int[] constraint_IDS = {
-            R.id.account_constraint_layout_settings,R.id.fivth_constraint_layout_settings,R.id.sixth_constraint_layout_settings,R.id.sevent_constraint_layout_settings
+            R.id.fivth_constraint_layout_settings,R.id.sixth_constraint_layout_settings,R.id.sevent_constraint_layout_settings
     };
 
 //    private static final int[] textview_IDS = {
@@ -83,6 +83,14 @@ public class SettingsMainActivity extends AppCompatActivity implements View.OnCl
             }
         });
 
+        privacyConstraint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent privacyIntent = new Intent(SettingsMainActivity.this,PrivacySettingsActivity.class);
+                startActivity(privacyIntent);
+            }
+        });
+
         for (int i:constraint_IDS){
             ConstraintLayout constraintLayout = findViewById(i);
             constraintLayout.setOnClickListener(this);
@@ -92,9 +100,11 @@ public class SettingsMainActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void initUI() {
+
         inviteFriendConstraint = findViewById(R.id.third_constraint_layout_settings);
         legalConstraint = findViewById(R.id.fourth_constraint_layout_settings);
         pushNotificationsConstraint = findViewById(R.id.second_constraint_layout_settings);
+        privacyConstraint = findViewById(R.id.privacy_constraint_layout_settings);
 
     }
 
