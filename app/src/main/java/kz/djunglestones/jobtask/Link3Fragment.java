@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -20,6 +22,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +34,9 @@ public class Link3Fragment extends Fragment {
     private TextView get_contacts_tv;
     private View v;
     private static final int PERMISSIONS_REQUEST_READ_CONTACTS = 100;
+    private boolean isEmpty = true;
+    private RecyclerView recyclerView;
+    private List<UserContacts> userContactsList;
 
     public Link3Fragment() {
         // Required empty public constructor
@@ -40,7 +48,18 @@ public class Link3Fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         setHasOptionsMenu(true);
-        v = inflater.inflate(R.layout.fragment_link3, container, false);
+        if (!isEmpty){
+            v = inflater.inflate(R.layout.fragment_link3, container, false);
+        }else{
+            v = inflater.inflate(R.layout.fragment_link3_with_contacts,container,false);
+            recyclerView  = v.findViewById(R.id.friend_contacts_recyclerview);
+            addContacts();
+            recyclerView.setHasFixedSize(true);
+            RecyclerViewFriendContacts recyclerViewFriendContacts = new RecyclerViewFriendContacts(getContext(),userContactsList);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+            recyclerView.setAdapter(recyclerViewFriendContacts);
+        }
+
 //        get_contacts_tv = v.findViewById(R.id.get_contacts_tv);
 //        get_contacts_tv.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -75,6 +94,15 @@ public class Link3Fragment extends Fragment {
 //        });
         return v;
 
+    }
+
+    private void addContacts() {
+        userContactsList = new ArrayList<>();
+        userContactsList.add(new UserContacts("Danabek Piknar","Kolsay",R.drawable.logo));
+        userContactsList.add(new UserContacts("Danabek Piknar","Kolsay",R.drawable.logo));
+        userContactsList.add(new UserContacts("Danabek Piknar","Kolsay",R.drawable.logo));
+        userContactsList.add(new UserContacts("Danabek Piknar","Kolsay",R.drawable.logo));
+        userContactsList.add(new UserContacts("Danabek Piknar","Kolsay",R.drawable.logo));
     }
 
 //    @Override

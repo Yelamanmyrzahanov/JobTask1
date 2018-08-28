@@ -70,7 +70,16 @@ public class OrderBreakDownRecyclerViewAdapter extends RecyclerView.Adapter<Orde
 
 
 //                Toast.makeText(mContext,String.valueOf(ticketsList.get(position).getAmountOfTickets()),Toast.LENGTH_SHORT).show();
-                pop_up_ticket_amount_counter=0;
+
+                if (!holder.order_break_tickets_amount_tv.getText().toString().contains("+") || !holder.order_break_tickets_amount_tv.getText().toString().equals("0")){
+//                            amountOfTickets = total_ticket_amount_const-clickedCardCouner;
+                    Toast.makeText(mContext,"HUina"+clickedCardCouner,Toast.LENGTH_SHORT).show();
+                    pop_up_ticket_amount_counter = clickedCardCouner;
+                }
+                else{
+                    clickedCardCouner=0;
+                    pop_up_ticket_amount_counter = 0;
+                }
                 dialog = new Dialog(mContext);
                 dialog.setContentView(R.layout.order_break_down_pop_up);
                 dialog.setCanceledOnTouchOutside(true);
@@ -85,11 +94,7 @@ public class OrderBreakDownRecyclerViewAdapter extends RecyclerView.Adapter<Orde
                 pop_up_add_ticket.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        if (!holder.order_break_tickets_amount_tv.getText().toString().contains("+")){
-////                            amountOfTickets = total_ticket_amount_const-clickedCardCouner;
-//                            Toast.makeText(mContext,"HUina"+clickedCardCouner,Toast.LENGTH_SHORT).show();
-//                            pop_up_ticket_amount_counter = clickedCardCouner;
-//                        }
+
                         if (pop_up_ticket_amount_counter==total_ticket_amount_const || pop_up_ticket_amount_counter>total_ticket_amount_const){
 //                            Toast.makeText(mContext,String.valueOf(pop_up_ticket_amount_counter)+ " EQual " + String.valueOf(total_ticket_amount_const),Toast.LENGTH_SHORT).show();
                             pop_up_ticket_amount_counter=total_ticket_amount_const;
@@ -97,8 +102,8 @@ public class OrderBreakDownRecyclerViewAdapter extends RecyclerView.Adapter<Orde
                             pop_up_ticket_amount_counter+=1;
                             amountOfTickets-=1;
                             pop_up_amount_ticket.setText(String.valueOf(total_ticket_amount_const-amountOfTickets));
+                            pop_up_ticket_amount_counter = total_ticket_amount_const-amountOfTickets;
 //                            ticketsList.get(position).setAmountOfTickets(ticketsList.get(position).getAmountOfTickets()-1);
-
                         }
 //                        if (pop_up_ticket_amount_counter!=total_ticket_amount_const && pop_up_ticket_amount_counter!=0){
 //                            pop_up_ticket_amount_counter = total_ticket_amount_const-pop_up_ticket_amount_counter;
@@ -110,6 +115,7 @@ public class OrderBreakDownRecyclerViewAdapter extends RecyclerView.Adapter<Orde
                         if (pop_up_ticket_amount_counter>=0 && amountOfTickets>=0 && pop_up_ticket_amount_counter+amountOfTickets==total_ticket_amount_const){
                             pop_up_ticket_amount_total.setText("Осталось билетов: "+amountOfTickets);
                             pop_up_amount_ticket.setText(String.valueOf(total_ticket_amount_const-amountOfTickets));
+                            pop_up_ticket_amount_counter = total_ticket_amount_const-amountOfTickets;
                         }
 
                     }
@@ -118,15 +124,11 @@ public class OrderBreakDownRecyclerViewAdapter extends RecyclerView.Adapter<Orde
                 pop_up_minus_ticket.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        if (!holder.order_break_tickets_amount_tv.getText().toString().contains("+")){
-////                            amountOfTickets = total_ticket_amount_const-clickedCardCouner;
-//                            Toast.makeText(mContext,"HUina"+clickedCardCouner,Toast.LENGTH_SHORT).show();
-//                            pop_up_ticket_amount_counter = clickedCardCouner;
-//                        }
                         if (pop_up_ticket_amount_counter>0){
                             pop_up_ticket_amount_counter-=1;
                             amountOfTickets+=1;
                             pop_up_amount_ticket.setText(String.valueOf(total_ticket_amount_const-amountOfTickets));
+                            pop_up_ticket_amount_counter = total_ticket_amount_const-amountOfTickets;
 //                            ticketsList.get(position).setAmountOfTickets(ticketsList.get(position).getAmountOfTickets()+1);
 
                         }else if (pop_up_ticket_amount_counter==0){
@@ -135,6 +137,7 @@ public class OrderBreakDownRecyclerViewAdapter extends RecyclerView.Adapter<Orde
 
                         if (pop_up_ticket_amount_counter>=0 && amountOfTickets>=0 && pop_up_ticket_amount_counter+amountOfTickets==total_ticket_amount_const){
                             pop_up_ticket_amount_total.setText("Осталось билетов: "+amountOfTickets);
+                            pop_up_ticket_amount_counter = total_ticket_amount_const-amountOfTickets;
                         }
 
                     }
