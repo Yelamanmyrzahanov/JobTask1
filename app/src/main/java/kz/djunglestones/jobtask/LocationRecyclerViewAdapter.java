@@ -5,11 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -46,9 +48,11 @@ public class LocationRecyclerViewAdapter extends RecyclerView.Adapter<LocationRe
                 ((Activity) context).finish();
             }
         });
+
         viewHolder.constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(context,"Constraint Clicked",Toast.LENGTH_SHORT).show();
                 Intent intent= new Intent();
                 intent.putExtra("city_name",viewHolder.cityName.getText().toString());
                 ((Activity) context).setResult(RESULT_OK,intent);
@@ -60,6 +64,7 @@ public class LocationRecyclerViewAdapter extends RecyclerView.Adapter<LocationRe
 //                ((Activity) context).finish();
             }
         });
+
         return viewHolder;
     }
 
@@ -77,11 +82,13 @@ public class LocationRecyclerViewAdapter extends RecyclerView.Adapter<LocationRe
     public class MyViewHolder extends RecyclerView.ViewHolder{
         TextView cityName;
         ConstraintLayout constraintLayout;
+        CardView cardView;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             cityName = itemView.findViewById(R.id.location_card_city_name);
             constraintLayout = itemView.findViewById(R.id.location_card_item_view_constraint);
+            cardView = itemView.findViewById(R.id.location_card_item_view);
         }
     }
 }

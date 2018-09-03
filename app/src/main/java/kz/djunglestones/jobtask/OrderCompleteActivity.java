@@ -16,7 +16,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -44,11 +48,23 @@ public class OrderCompleteActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String event_name = intent.getStringExtra("ticket_name");
-        eventNameList = getIntent().getStringArrayListExtra("event_ticket_types");
+//        eventNameList = getIntent().getStringArrayListExtra("event_ticket_types");
+        final HashMap<String, Integer> hashMap = (HashMap<String, Integer>)intent.getSerializableExtra("map");
+        Set set = hashMap.entrySet();
+
+        // Get an iterator
+        Iterator i = set.iterator();
+        int ticket_amount_counter=0;
+        while(i.hasNext()) {
+            Map.Entry me = (Map.Entry)i.next();
+            Log.i("KEY Complete", "key Complete: "+me.getKey());
+            Log.i("Value Complete", "value Complete: "+me.getValue());
+            ticket_amount_counter += (Integer)me.getValue();
+        }
         Toast.makeText(OrderCompleteActivity.this,event_name,Toast.LENGTH_SHORT).show();
         String event_date = intent.getStringExtra("ticket_date");
-        String ticket_amount = intent.getStringExtra("ticket_amount");
-        int ticket_amount_counter = Integer.parseInt(ticket_amount);
+//        String ticket_amount = intent.getStringExtra("ticket_amount");
+//        int ticket_amount_counter = Integer.parseInt(ticket_amount);
         order_complete_card_ticket_amount = findViewById(R.id.order_complete_card_ticket_amount);
         order_complete_date = findViewById(R.id.order_complete_date);
         order_complete_event_name = findViewById(R.id.order_complete_event_name);
@@ -57,19 +73,22 @@ public class OrderCompleteActivity extends AppCompatActivity {
         order_complete_date.setText(event_date);
 
         if (ticket_amount_counter==1) {
-            order_complete_card_ticket_amount.setText(ticket_amount+" билет");
+            order_complete_card_ticket_amount.setText(String.valueOf(ticket_amount_counter)+" билет");
         }else if (ticket_amount_counter>1 && ticket_amount_counter<5){
-            order_complete_card_ticket_amount.setText(ticket_amount+" билета");
+            order_complete_card_ticket_amount.setText(String.valueOf(ticket_amount_counter)+" билета");
         }else {
-            order_complete_card_ticket_amount.setText(ticket_amount+" билетов");
+            order_complete_card_ticket_amount.setText(String.valueOf(ticket_amount_counter)+" билетов");
         }
 
 
         order_complete_cardview_ticket_constraint = findViewById(R.id.order_complete_tickets_clickable_constraint);
+        final int finalTicket_amount_counter = ticket_amount_counter;
         order_complete_cardview_ticket_constraint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(OrderCompleteActivity.this,EventInfoActivity.class);
+                intent.putExtra("map",hashMap);
+                intent.putExtra("tickets_amount",String.valueOf(finalTicket_amount_counter));
                 intent.putExtra("event_name",order_complete_event_name.getText().toString());
                 startActivity(intent);
             }

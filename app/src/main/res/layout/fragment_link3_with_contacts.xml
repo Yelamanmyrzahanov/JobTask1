@@ -3,39 +3,37 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/contact_search_textinput_layout"
+
+    <EditText
+        android:id="@+id/contact_search_edittext"
         android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:drawableLeft="@drawable/ic_search_grey_24dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:hint="Поиск"
+        android:inputType="text"
+        android:theme="@style/MyEditTextTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/contact_search_edittext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Поиск"
-            android:drawableLeft="@drawable/ic_search_grey_24dp"
-            android:theme="@style/MyEditTextTheme"
-            android:inputType="text"
-            android:focusable="auto"
-            />
-
-    </android.support.design.widget.TextInputLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/friend_contacts_recyclerview"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contact_search_textinput_layout"></android.support.v7.widget.RecyclerView>
+        app:layout_constraintTop_toBottomOf="@+id/contact_search_edittext"></android.support.v7.widget.RecyclerView>
 
 </android.support.constraint.ConstraintLayout>

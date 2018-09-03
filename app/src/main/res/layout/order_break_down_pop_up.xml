@@ -68,48 +68,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/pop_up_ticket_amount_total" />
 
-            <ImageButton
-                android:id="@+id/pop_up_minus_ticket"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="32dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
-                android:background="@color/white"
-                app:layout_constraintBottom_toTopOf="@+id/pop_up_buy_ticket"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pop_up_ticket_alert"
-                app:srcCompat="@drawable/ic_remove_circle_48dp" />
-
-            <ImageButton
-                android:id="@+id/pop_up_add_ticket"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="32dp"
-                android:adjustViewBounds="true"
-                android:background="@color/white"
-                android:cropToPadding="true"
-                app:layout_constraintBottom_toTopOf="@+id/pop_up_buy_ticket"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pop_up_ticket_alert"
-                app:srcCompat="@drawable/ic_add_circle_outline_48dp" />
-
-            <TextView
-                android:id="@+id/pop_up_amount_ticket"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_light"
-                android:text="0"
-                android:textAlignment="center"
-                android:textColor="#505050"
-                android:textSize="48sp"
-                app:layout_constraintBottom_toBottomOf="@+id/pop_up_add_ticket"
-                app:layout_constraintEnd_toStartOf="@+id/pop_up_add_ticket"
-                app:layout_constraintStart_toEndOf="@+id/pop_up_minus_ticket"
-                app:layout_constraintTop_toTopOf="@+id/pop_up_add_ticket" />
-
             <Button
                 android:id="@+id/pop_up_buy_ticket"
                 android:layout_width="0dp"
@@ -125,6 +83,21 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
+
+            <Spinner
+                android:id="@+id/pop_up_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:prompt="@string/spinner_title"
+                style="@android:style/Widget.Spinner"
+                app:layout_constraintBottom_toTopOf="@+id/pop_up_buy_ticket"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pop_up_ticket_alert" />
 
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>

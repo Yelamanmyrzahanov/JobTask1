@@ -65,6 +65,8 @@
                     android:layout_marginEnd="24dp"
                     android:fontFamily="@font/roboto_medium"
                     android:text="OK"
+                    android:clickable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
                     android:visibility="visible" />

@@ -34,6 +34,7 @@
                 android:layout_marginEnd="20dp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="готово"
+                android:clickable="true"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="14sp"/>
@@ -109,6 +110,7 @@
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
                     app:layout_constraintEnd_toEndOf="parent"
+                    style="@style/SelectableItemBackground"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view9">
 
@@ -221,6 +223,8 @@
                         android:layout_marginBottom="8dp"
                         android:layout_marginEnd="12dp"
                         android:layout_marginTop="8dp"
+                        android:clickable="true"
+                        android:foreground="?attr/selectableItemBackground"
                         android:src="@drawable/ic_share_violet_radius"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"

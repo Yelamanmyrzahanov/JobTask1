@@ -14,7 +14,6 @@
         android:layout_marginStart="4dp"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        style="@style/SelectableItemBackground"
         app:cardElevation="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,13 +28,15 @@
 
             <ImageView
                 android:id="@+id/popular_card_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
+                android:layout_width="0dp"
+                android:layout_height="91dp"
+                android:adjustViewBounds="false"
+                android:cropToPadding="false"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/mount7" />
+                app:srcCompat="@drawable/ferdinand" />
 
             <TextView
                 android:id="@+id/popular_card_date_tv"
@@ -57,8 +58,8 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="4dp"
-                android:fontFamily="@font/roboto_medium"
                 android:ellipsize="end"
+                android:fontFamily="@font/roboto_medium"
                 android:maxLines="2"
                 android:text="Мастер-класс: Кулинария Мастер-класс: Кулинария Мастер-класс: Кулинария Мастер-класс: Кулинария"
                 android:textColor="@color/black_textviews"
@@ -74,8 +75,8 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="4dp"
-                android:fontFamily="@font/roboto"
                 android:ellipsize="end"
+                android:fontFamily="@font/roboto"
                 android:maxLines="1"
                 android:text="Almaty, ул.Фурманова Almaty, ул.Фурманова Almaty, ул.Фурманова Almaty, ул.Фурманова"
                 android:textColor="#666666"

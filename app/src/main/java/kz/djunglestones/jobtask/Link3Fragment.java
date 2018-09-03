@@ -98,11 +98,11 @@ public class Link3Fragment extends Fragment {
 
     private void addContacts() {
         userContactsList = new ArrayList<>();
-        userContactsList.add(new UserContacts("Danabek Piknar","Kolsay",R.drawable.logo));
-        userContactsList.add(new UserContacts("Danabek Piknar","Kolsay",R.drawable.logo));
-        userContactsList.add(new UserContacts("Danabek Piknar","Kolsay",R.drawable.logo));
-        userContactsList.add(new UserContacts("Danabek Piknar","Kolsay",R.drawable.logo));
-        userContactsList.add(new UserContacts("Danabek Piknar","Kolsay",R.drawable.logo));
+        userContactsList.add(new UserContacts("Нариман Дуйсеков","Семинар: Как за 2 месяца выучить английский язык",R.drawable.madagascar));
+        userContactsList.add(new UserContacts("Саян Досханулы","Семинар: Как за 2 месяца выучить английский язык",R.drawable.ferdinand));
+        userContactsList.add(new UserContacts("Бекнар Данабек","Семинар: Как за 2 месяца выучить английский язык",R.drawable.sonic_min));
+        userContactsList.add(new UserContacts("Елмухтар Сарыбай","Семинар: Как за 2 месяца выучить английский язык",R.drawable.zveropoi));
+        userContactsList.add(new UserContacts("Аяз Елемесов","Семинар: Как за 2 месяца выучить английский язык",R.drawable.mount1));
     }
 
 //    @Override

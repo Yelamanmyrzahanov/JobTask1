@@ -27,6 +27,7 @@
     <string name="fragment_blank_tickets_second_tv">У вас есть свободное время, мы можем\nпомочь вам найти мероприятия.</string>
     <string name="fragment_blank_tickets_show_events_tv">посмотреть мероприятия</string>
     <string name="cardview_ticket_event_name">Семинар по английскому языку</string>
+    <string name="spinner_title">Выберите количество билетов</string>
     <string-array name="links">
         <item>Алматы</item>
         <item>Астана</item>

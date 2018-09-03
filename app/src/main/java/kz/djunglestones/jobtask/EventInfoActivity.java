@@ -12,12 +12,20 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.util.HashMap;
+
 public class EventInfoActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TextView title_event_info;
     private ViewPager viewPager;
     private PageAdapterEventInfo pageAdapterEventInfo;
     private TabLayout tabLayout;
+    private int tickets_amount_global;
+    private String titleGlobal;
+    private HashMap<String, Integer> hashMapGlobal = new HashMap<>();
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,11 +35,23 @@ public class EventInfoActivity extends AppCompatActivity {
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_layout_event_info);
         collapsingToolbarLayout.setTitleEnabled(false);
         setSupportActionBar(toolbar);
-        Intent intent = getIntent();
-        String title = intent.getStringExtra("event_name");
+
+
+            Intent intent = getIntent();
+            titleGlobal = intent.getStringExtra("event_name");
+            hashMapGlobal = (HashMap<String, Integer>)intent.getSerializableExtra("map");
+            tickets_amount_global = Integer.parseInt(intent.getStringExtra("tickets_amount"));
+
+
+
+
+
+
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setTitle(title);
+        getSupportActionBar().setTitle(titleGlobal);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
 
         viewPager = findViewById(R.id.viewPager_event_info);
         tabLayout = findViewById(R.id.event_info_tab_layout);
@@ -91,5 +111,29 @@ public class EventInfoActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public int getTickets_amount_global() {
+        return tickets_amount_global;
+    }
+
+    public void setTickets_amount_global(int tickets_amount_global) {
+        this.tickets_amount_global = tickets_amount_global;
+    }
+
+    public String getTitleGlobal() {
+        return titleGlobal;
+    }
+
+    public void setTitleGlobal(String titleGlobal) {
+        this.titleGlobal = titleGlobal;
+    }
+
+    public HashMap<String, Integer> getHashMapGlobal() {
+        return hashMapGlobal;
+    }
+
+    public void setHashMapGlobal(HashMap<String, Integer> hashMapGlobal) {
+        this.hashMapGlobal = hashMapGlobal;
     }
 }

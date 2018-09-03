@@ -67,12 +67,12 @@ public class OrderBreakDownActivity extends AppCompatActivity{
 
     private void addTickets() {
         ticketsList = new ArrayList<>();
-        ticketsList.add(new Tickets("Cтандарт",5000,30));
+        ticketsList.add(new Tickets("Cтандарт",5000,10));
         ticketsList.add(new Tickets("Limited",3000,0));
-        ticketsList.add(new Tickets("Ticket not null",2000,10));
-        ticketsList.add(new Tickets("Ticket not null",4000,10));
-        ticketsList.add(new Tickets("Ticket not null",6000,10));
-        ticketsList.add(new Tickets("Ticket not null",25000,50));
+        ticketsList.add(new Tickets("Golden",2000,2));
+        ticketsList.add(new Tickets("Silver",4000,11));
+        ticketsList.add(new Tickets("Platinum",6000,10));
+        ticketsList.add(new Tickets("Meduim",25000,50));
     }
 
 
