@@ -79,8 +79,11 @@ public class OrderBreakDownRecyclerViewAdapter extends RecyclerView.Adapter<Orde
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
 
-        holder.order_break_down_ticket_price.setText(ticketsList.get(position).getTicketPrice()+" ₸");
-        holder.order_break_down_ticket_name.setText(ticketsList.get(position).getTicketName());
+        Tickets ticket = ticketsList.get(holder.getAdapterPosition());
+
+        holder.order_break_down_ticket_price.setText(ticket.getTicketPrice()+" ₸");
+        holder.order_break_down_ticket_name.setText(ticket.getTicketName());
+        holder.order_break_tickets_amount_tv.setText(String.valueOf(ticket.getTicketCount()));
 
 
         holder.cardView_tickets.setOnClickListener(new View.OnClickListener() {
@@ -92,7 +95,7 @@ public class OrderBreakDownRecyclerViewAdapter extends RecyclerView.Adapter<Orde
                 ticketPrice = ticketsList.get(position).getTicketPrice();
 
 
-                pos = position;
+                final int itemPosition = holder.getAdapterPosition();
                 selected.put(ticketsList.get(position),true);
                 initPopupUI();
                 pop_up_ticket_name.setText(ticketName);
@@ -118,128 +121,38 @@ public class OrderBreakDownRecyclerViewAdapter extends RecyclerView.Adapter<Orde
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         String item = parent.getItemAtPosition(position).toString();
                         int ticket_amount_spinner = Integer.parseInt(item);
-//                        final int price = ticketsList.get(position).getTicketPrice();
-                        // Showing selected spinner item
-                        Toast.makeText(mContext, " "+ticket_amount_spinner, Toast.LENGTH_SHORT).show();
-                        if (!holder.order_break_tickets_amount_tv.getText().toString().contains("+")){
-                            Toast.makeText(mContext,"Inside if amount"+holder.order_break_tickets_amount_tv.getText().toString(),Toast.LENGTH_SHORT).show();
-                            int ticket_picked_first_time =Integer.parseInt(holder.order_break_tickets_amount_tv.getText().toString());
-                            Log.d("ticket_picked_first", "onItemSelected: "+ticket_picked_first_time);
-                            int price = ticketsList.get(pos).getTicketPrice();
-                            Log.i("Price Inside if", "ticketsList.get(pos) Inside if: "+price);
-                            total_ticket_bought_price-=price*ticket_picked_first_time;
-                            Log.i("totalPrice Inside if", "totalPrice Inside if: "+total_ticket_bought_price);
-                            total_bought_tickets_counter-=ticket_picked_first_time;
-                            Log.i("TotaTickets Inside if", "TotalTickets Inside if: "+total_bought_tickets_counter);
-                        }else{
-                            Toast.makeText(mContext,"Inside else",Toast.LENGTH_SHORT).show();
-                            if (ticket_amount_spinner>0){
-                                Toast.makeText(mContext,"Inside else if",Toast.LENGTH_SHORT).show();
-                                int ticket_picked_first_time =Integer.parseInt(holder.order_break_tickets_amount_tv.getText().toString().replaceAll("[\\D]", "0"));
 
-                                int price = ticketsList.get(pos).getTicketPrice();
-                                Log.i("Price Inside else", "ticketsList.get(pos) Inside else: "+price);
-                                total_ticket_bought_price+=price*(Integer)ticket_amount_spinner;
-                                Log.i("totalPrice Inside else", "totalPrice Inside else: "+total_ticket_bought_price);
-                                total_bought_tickets_counter+=(Integer) ticket_amount_spinner;
-                                Log.i("TotaTickets Inside else", "TotalTickets Inside else: "+total_bought_tickets_counter);
-//                                hashMap.put(ticketsList.get(pos).getTicketName(),ticket_amount_spinner);
-//                                hashMap1.put(ticketsList.get(pos).getTicketName(),ticket_amount_spinner);
+                        Tickets ticket = ticketsList.get(itemPosition);
+                        ticket.setTicketCount(ticket_amount_spinner);
+                        ticketsList.set(itemPosition, ticket);
+
+                        
+                        notifyItemChanged(itemPosition);
+
+                        int totalCount = 0;
+                        int total_Price = 0;
+                        for (Tickets object : ticketsList) {
+                            totalCount += object.ticketCount;
+                            if (object.ticketCount>=0){
+                                
                             }
                         }
 
 
-
-//                        if (ticket_amount_spinner>0){
-//                            Set set = ticketTotal.entrySet();
-//                            Iterator i = set.iterator();
-//                            HashMap<Tickets,Integer> mppp = new HashMap<>();
-//                        while(i.hasNext()) {
-//                            Map.Entry me = (Map.Entry)i.next();
-//                            mppp = (HashMap<Tickets,Integer>)me.getKey();
-//                            if(!mppp.containsKey(ticketsList.get(pos))){
-//
-//                                Tickets tick = ticketsList.get(pos);
-//                                Integer amo = ticket_amount_spinner;
-//                                HashMap<Tickets,Integer> tickMap = new HashMap<Tickets, Integer>();
-//                                tickMap.put(tick,amo);
-//                                ticketTotal.put(tickMap,ticketPrice*ticket_amount_spinner);
-//
-//                                //ticketsIntegerHashMap.put(ticketsList.get(pos),ticket_amount_spinner);
-//
-//                            }
-//                            else{
-//                                Set setfor = mppp.entrySet();
-//                                Iterator setIter = setfor.iterator();
-//                                while (setIter.hasNext()){
-//                                    Map.Entry kv = (Map.Entry)setIter.next();
-//                                    Tickets tickeet = (Tickets)kv.getKey();
-//                                    ticketTotal.put(mppp,(Integer)me.getValue()-tickeet.getTicketPrice()*(Integer)kv.getValue());
-//                                }
-//                                mppp.put(ticketsList.get(pos),ticket_amount_spinner);
-//                            }
-//                            //order_break_down_quantity_and_total.setText("Количество: "+String.valueOf(ticketTotal.get(mppp))+"\n"+"Итого: "+total_ticket_bought_price);
-//
-//                        }
-////                            order_break_down_quantity_and_total.setText("Количество: "+String.valueOf(ticketTotal.get(mppp))+"\n"+"Итого: "+total_ticket_bought_price);
-//
-//                            //order_break_down_quantity_and_total.setText("Количество: "+String.valueOf(total_bought_tickets_counter)+"\n"+"Итого: "+total_ticket_bought_price);
-//
-////                            if(ticketTotal.isEmpty()){
-////                                Tickets tick = ticketsList.get(pos);
-////                                Integer amo = ticket_amount_spinner;
-////                                HashMap<Tickets,Integer> tickMap = new HashMap<Tickets, Integer>();
-////                                tickMap.put(tick,amo);
-////                                ticketTotal.put(tickMap,ticketPrice*ticket_amount_spinner);
-////                                //total_ticket_bought_price+=ticketPrice*ticket_amount_spinner;
-////                                //total_bought_tickets_counter+=ticket_amount_spinner;
-////
-////
-////
-////                                selected.put(ticketsList.get(pos),false);
-////                            }
-////                            else{
-////
-////
-////                            }
-////                            hashMap.put(ticketsList.get(position),ticket_amount_spinner);
-////                            hashMap1.put(ticketName,ticket_amount_spinner);
-//                            //positions.add(position);
-//                            dialog.dismiss();
-//                        }
-//                        Set set = hashMap.entrySet();
-//
-//                        // Get an iterator
-//                        Iterator i = set.iterator();
-//
-//                        while(i.hasNext()) {
-//                            Map.Entry me = (Map.Entry)i.next();
-//                            Log.i("KEY", "key : "+me.getKey());
-//                            Log.i("Value", "value : "+me.getValue());
-//                            //boolean isFirstTimeClicked = true;
-//
-//
-//
-//                            for (Tickets tickets:ticketsList){
-//                                if (me.getKey().equals(tickets.getTicketName())){
-//
-//                                    int price = tickets.getTicketPrice();
-//                                    total_ticket_bought_price+=price*(Integer)me.getValue();
-//                                    total_bought_tickets_counter+=(Integer) me.getValue();
-//                                    i.remove();
-//                                }
-//                            }
-//                        }
+                        order_break_down_quantity_and_total.setText("Количество: "+String.valueOf(totalCount)+"\n"+"Итого: "+total_Price);
 
                         holder.order_break_tickets_amount_tv.setText(item);
-                        order_break_down_quantity_and_total.setText("Количество: "+String.valueOf(total_bought_tickets_counter)+"\n"+"Итого: "+total_ticket_bought_price);
-
+//                        setTotal();
+                        if (ticket_amount_spinner>0){
+                            order_break_down_complete_order_btn.setClickable(true);
+                            order_break_down_complete_order_btn.setBackgroundColor(Color.parseColor("#63be87"));
+                        }
                         dialog.dismiss();
-                        order_break_down_complete_order_btn.setClickable(true);
-                        order_break_down_complete_order_btn.setBackgroundColor(Color.parseColor("#63be87"));
 
 
                     }
+
+
 
                     @Override
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -250,6 +163,8 @@ public class OrderBreakDownRecyclerViewAdapter extends RecyclerView.Adapter<Orde
                     }
 
                 });
+
+
 
 //                pop_up_ticket_buy_ticket_btn.setOnClickListener(new View.OnClickListener() {
 //                    @Override
@@ -307,6 +222,13 @@ public class OrderBreakDownRecyclerViewAdapter extends RecyclerView.Adapter<Orde
 
             }
         });
+
+//        private void setTotal(){
+//            for (int i=0;i<ticketsList.size();i++){
+//                holder.order_break_tickets_amount_tv.getText()
+//            }
+////                        order_break_down_quantity_and_total.setText("Количество: "+String.valueOf(total_bought_tickets_counter)+"\n"+"Итого: "+total_ticket_bought_price);
+//        }
 
 
 
