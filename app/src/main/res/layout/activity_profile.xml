@@ -61,8 +61,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_gravity="bottom"
-                android:clickable="true"
-                app:tabBackground="@drawable/tab_selector_ripple"
                 android:background="@color/tab2"
                 app:tabIndicatorHeight="4dp"
                 app:tabSelectedTextColor="#5f6cba"

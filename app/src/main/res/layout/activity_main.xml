@@ -74,8 +74,6 @@
             android:id="@+id/tab_layout"
             android:background="@color/tab2"
             app:tabSelectedTextColor="#5f6cba"
-            android:clickable="true"
-            app:tabBackground="@drawable/tab_selector_ripple"
             app:tabTextColor="#675f6cba"
             app:tabIndicatorHeight="4dp"
             app:tabTextAppearance="@style/CustomTabText"

@@ -282,10 +282,10 @@
                     <TextView
                         android:id="@+id/cardView_company_events_count"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="15dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/roboto_regular"
                         android:text="Организатор"
                         android:textAlignment="center"

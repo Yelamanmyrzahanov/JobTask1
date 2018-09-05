@@ -37,10 +37,13 @@ public class EventInfoActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-            Intent intent = getIntent();
+        Intent intent = getIntent();
+        if (intent.getExtras()!=null){
             titleGlobal = intent.getStringExtra("event_name");
             hashMapGlobal = (HashMap<String, Integer>)intent.getSerializableExtra("map");
-            tickets_amount_global = Integer.parseInt(intent.getStringExtra("tickets_amount"));
+            tickets_amount_global = intent.getIntExtra("tickets_amount",0);
+        }
+
 
 
 

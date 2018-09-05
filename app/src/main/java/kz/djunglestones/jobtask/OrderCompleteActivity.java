@@ -49,18 +49,22 @@ public class OrderCompleteActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String event_name = intent.getStringExtra("ticket_name");
 //        eventNameList = getIntent().getStringArrayListExtra("event_ticket_types");
-        final HashMap<String, Integer> hashMap = (HashMap<String, Integer>)intent.getSerializableExtra("map");
-        Set set = hashMap.entrySet();
-
-        // Get an iterator
-        Iterator i = set.iterator();
         int ticket_amount_counter=0;
-        while(i.hasNext()) {
-            Map.Entry me = (Map.Entry)i.next();
-            Log.i("KEY Complete", "key Complete: "+me.getKey());
-            Log.i("Value Complete", "value Complete: "+me.getValue());
-            ticket_amount_counter += (Integer)me.getValue();
+        final HashMap<String, Integer> hashMap = (HashMap<String, Integer>)intent.getSerializableExtra("map");
+        if (!((HashMap<String, Integer>) intent.getSerializableExtra("map")).isEmpty()){
+            Set set = hashMap.entrySet();
+
+            // Get an iterator
+            Iterator i = set.iterator();
+
+            while(i.hasNext()) {
+                Map.Entry me = (Map.Entry)i.next();
+                Log.i("KEY Complete", "key Complete: "+me.getKey());
+                Log.i("Value Complete", "value Complete: "+me.getValue());
+                ticket_amount_counter += (Integer)me.getValue();
+            }
         }
+
         Toast.makeText(OrderCompleteActivity.this,event_name,Toast.LENGTH_SHORT).show();
         String event_date = intent.getStringExtra("ticket_date");
 //        String ticket_amount = intent.getStringExtra("ticket_amount");
@@ -88,7 +92,7 @@ public class OrderCompleteActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(OrderCompleteActivity.this,EventInfoActivity.class);
                 intent.putExtra("map",hashMap);
-                intent.putExtra("tickets_amount",String.valueOf(finalTicket_amount_counter));
+                intent.putExtra("tickets_amount",finalTicket_amount_counter);
                 intent.putExtra("event_name",order_complete_event_name.getText().toString());
                 startActivity(intent);
             }
@@ -103,65 +107,6 @@ public class OrderCompleteActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-//        whatsapp_circle = findViewById(R.id.whatsapp_circle);
-//        whatsapp_circle.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent whatsappIntent = new Intent(Intent.ACTION_SEND);
-//                whatsappIntent.setType("text/plain");
-//                whatsappIntent.setPackage("com.whatsapp");
-//                whatsappIntent.putExtra(Intent.EXTRA_TEXT,"Whatsapp Message Test");
-//                try {
-//                    startActivity(whatsappIntent);
-//                }catch (android.content.ActivityNotFoundException ex){
-//                    Toast.makeText(OrderCompleteActivity.this,"Whatsapp have not been installed.",Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-//        vkontakte_circle = findViewById(R.id.vkontakte_circle);
-//        vkontakte_circle.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent vkontakteIntent = new Intent(Intent.ACTION_SEND);
-//                vkontakteIntent.setType("text/plain");
-//                vkontakteIntent.setPackage("com.vkontakte");
-//                vkontakteIntent.putExtra(Intent.EXTRA_TEXT,"Vk Message Test");
-//                try{
-//                    startActivity(vkontakteIntent);
-//                }catch (android.content.ActivityNotFoundException ex){
-//                    Toast.makeText(OrderCompleteActivity.this,"VK have not been installed.",Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-
-//        sms_circle = findViewById(R.id.sms_circle);
-//        sms_circle.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String smsBody="Sms Body";
-//                Intent sendIntent = new Intent(Intent.ACTION_SEND);
-//                sendIntent.setType("text/plain");
-//                sendIntent.putExtra("sms_body", smsBody);
-//                startActivity(Intent.createChooser(sendIntent,"Поделиться"));
-//            }
-//        });
-
-
-
-//        email_circle = findViewById(R.id.email_circle);
-//        email_circle.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent shareIntent = new Intent(Intent.ACTION_SEND);
-//                String shareBody = "Body text (Testing share button)";
-//                String shareSub = "Subject text (Testing share button)";
-//                shareIntent.putExtra(Intent.EXTRA_SUBJECT,shareBody);
-//                shareIntent.putExtra(Intent.EXTRA_TEXT,shareSub);
-//                shareIntent.setType("message/rfc822");
-//                startActivity(Intent.createChooser(shareIntent,"Поделиться"));
-//            }
-//        });
 
         more_options_circle = findViewById(R.id.more_options_circle);
         more_options_circle.setOnClickListener(new View.OnClickListener() {

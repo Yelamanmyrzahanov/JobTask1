@@ -55,25 +55,32 @@ public class EventInfoTicketFragment extends Fragment {
         EventInfoActivity eventInfoActivity =(EventInfoActivity)getActivity();
         HashMap<String,Integer> hashMap = eventInfoActivity.getHashMapGlobal();
         int tickets_amount = eventInfoActivity.getTickets_amount_global();
-        qrTicketsList = new ArrayList<>();
-        Set set = hashMap.entrySet();
-        Log.d("HASHMAP", "onCreate: "+hashMap);
-        // Get an iterator
-        Iterator i = set.iterator();
-        while(i.hasNext()) {
-            Map.Entry me = (Map.Entry)i.next();
-            Log.i("KEY", "key : "+me.getKey());
-            Log.i("Value", "value : "+me.getValue());
-            //boolean isFirstTimeClicked = true;
-            for (int k=0;k<(Integer)me.getValue();k++){
-                qrTicketsList.add(new QRTickets("Nariman_duisekov", (String) me.getKey(),R.drawable.qrcode));
+        if (!(hashMap ==null) || tickets_amount!=0){
+            qrTicketsList = new ArrayList<>();
+            Set set = hashMap.entrySet();
+            Log.d("HASHMAP", "onCreate: "+hashMap);
+            // Get an iterator
+            Iterator i = set.iterator();
+            while(i.hasNext()) {
+                Map.Entry me = (Map.Entry)i.next();
+                Log.i("KEY", "key : "+me.getKey());
+                Log.i("Value", "value : "+me.getValue());
+                //boolean isFirstTimeClicked = true;
+                for (int k=0;k<(Integer)me.getValue();k++){
+                    qrTicketsList.add(new QRTickets("Nariman_duisekov", (String) me.getKey(),R.drawable.qrcode));
+                }
+
+                //boolean isFirstTimeClicked = true;
+
+
+
             }
-
-            //boolean isFirstTimeClicked = true;
-
-
-
         }
+        else{
+            qrTicketsList = new ArrayList<>();
+            qrTicketsList.add(new QRTickets("Nariman_duisekov", "Стандарт",R.drawable.qrcode));
+        }
+
 
 
 
